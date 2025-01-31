@@ -3,7 +3,7 @@
 
 # CPTCProjectFinanceTracker
 This repository is the first collaborative assignment that will be working on throughtout the quarter. 
-This is an ASP.NET CORE EF  project created using Visual Studio 2022 and it incoorporates source control.
+This is a Windows Forms project created using Visual Studio 2022 and it incoorporates source control.
 
 ## Prerequisites
 - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
