@@ -38,57 +38,65 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 55);
+            label1.Location = new Point(41, 90);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(143, 25);
+            label1.Size = new Size(241, 41);
             label1.TabIndex = 0;
             label1.Text = "Current Balance: ";
             // 
             // btnAddIncome
             // 
-            btnAddIncome.Location = new Point(60, 345);
+            btnAddIncome.Location = new Point(102, 566);
+            btnAddIncome.Margin = new Padding(5, 5, 5, 5);
             btnAddIncome.Name = "btnAddIncome";
-            btnAddIncome.Size = new Size(153, 65);
+            btnAddIncome.Size = new Size(260, 107);
             btnAddIncome.TabIndex = 2;
             btnAddIncome.Text = "Add Income";
             btnAddIncome.UseVisualStyleBackColor = true;
             // 
             // btnAddExpense
             // 
-            btnAddExpense.Location = new Point(392, 345);
+            btnAddExpense.Location = new Point(666, 566);
+            btnAddExpense.Margin = new Padding(5, 5, 5, 5);
             btnAddExpense.Name = "btnAddExpense";
-            btnAddExpense.Size = new Size(153, 65);
+            btnAddExpense.Size = new Size(260, 107);
             btnAddExpense.TabIndex = 5;
             btnAddExpense.Text = "Add Expense";
             btnAddExpense.UseVisualStyleBackColor = true;
+            btnAddExpense.Click += btnAddExpense_Click;
             // 
             // txtCurrentBalance
             // 
             txtCurrentBalance.Enabled = false;
-            txtCurrentBalance.Location = new Point(173, 55);
+            txtCurrentBalance.Location = new Point(294, 90);
+            txtCurrentBalance.Margin = new Padding(5, 5, 5, 5);
             txtCurrentBalance.Name = "txtCurrentBalance";
-            txtCurrentBalance.Size = new Size(150, 31);
+            txtCurrentBalance.Size = new Size(252, 47);
             txtCurrentBalance.TabIndex = 6;
             // 
             // grpBxTransactions
             // 
-            grpBxTransactions.Location = new Point(39, 148);
+            grpBxTransactions.Location = new Point(66, 243);
+            grpBxTransactions.Margin = new Padding(5, 5, 5, 5);
             grpBxTransactions.Name = "grpBxTransactions";
-            grpBxTransactions.Size = new Size(298, 162);
+            grpBxTransactions.Padding = new Padding(5, 5, 5, 5);
+            grpBxTransactions.Size = new Size(507, 266);
             grpBxTransactions.TabIndex = 7;
             grpBxTransactions.TabStop = false;
             grpBxTransactions.Text = "Recent Transactions";
             // 
             // HomeScreen
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(611, 450);
+            ClientSize = new Size(1039, 738);
             Controls.Add(grpBxTransactions);
             Controls.Add(txtCurrentBalance);
             Controls.Add(btnAddExpense);
             Controls.Add(btnAddIncome);
             Controls.Add(label1);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "HomeScreen";
             Text = "Finance Tracker";
             ResumeLayout(false);
