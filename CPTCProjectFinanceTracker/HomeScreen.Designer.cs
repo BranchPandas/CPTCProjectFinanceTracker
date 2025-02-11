@@ -59,6 +59,7 @@
             btnAddIncome.TabIndex = 2;
             btnAddIncome.Text = "Add Income";
             btnAddIncome.UseVisualStyleBackColor = true;
+            btnAddIncome.Click += btnAddIncome_Click;
             // 
             // btnAddExpense
             // 

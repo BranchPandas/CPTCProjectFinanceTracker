@@ -12,5 +12,11 @@ namespace CPTCProjectFinanceTracker
             AddExpensesForm addExpensesForm = new AddExpensesForm();
             addExpensesForm.Show();
         }
+
+        private void btnAddIncome_Click(object sender, EventArgs e)
+        {
+            AddIncomeForm addIncomeForm = new AddIncomeForm();
+            addIncomeForm.Show();
+        }
     }
 }
