@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPTCProjectFinanceTracker;
+namespace CPTCProjectFinanceTracker.Database;
 
 public class FinanceTrackingContext : DbContext
 {
-    public FinanceTrackingContext() 
-    { 
-    
+    public FinanceTrackingContext()
+    {
+
     }
     /// <summary>
     /// This is how the database is being created and its connection string
