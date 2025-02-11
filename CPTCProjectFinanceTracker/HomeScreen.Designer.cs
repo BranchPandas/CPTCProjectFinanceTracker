@@ -33,34 +33,42 @@
             btnAddExpense = new Button();
             txtCurrentBalance = new TextBox();
             grpBxTransactions = new GroupBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(41, 90);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(29, 135);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(241, 41);
+            label1.Size = new Size(174, 28);
             label1.TabIndex = 0;
             label1.Text = "Current Balance: ";
             // 
             // btnAddIncome
             // 
-            btnAddIncome.Location = new Point(102, 566);
-            btnAddIncome.Margin = new Padding(5, 5, 5, 5);
+            btnAddIncome.FlatAppearance.BorderSize = 4;
+            btnAddIncome.FlatStyle = FlatStyle.Flat;
+            btnAddIncome.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddIncome.Location = new Point(72, 459);
+            btnAddIncome.Margin = new Padding(4, 3, 4, 3);
             btnAddIncome.Name = "btnAddIncome";
-            btnAddIncome.Size = new Size(260, 107);
+            btnAddIncome.Size = new Size(184, 73);
             btnAddIncome.TabIndex = 2;
             btnAddIncome.Text = "Add Income";
             btnAddIncome.UseVisualStyleBackColor = true;
             // 
             // btnAddExpense
             // 
-            btnAddExpense.Location = new Point(666, 566);
-            btnAddExpense.Margin = new Padding(5, 5, 5, 5);
+            btnAddExpense.FlatAppearance.BorderSize = 4;
+            btnAddExpense.FlatStyle = FlatStyle.Flat;
+            btnAddExpense.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddExpense.Location = new Point(470, 459);
+            btnAddExpense.Margin = new Padding(4, 3, 4, 3);
             btnAddExpense.Name = "btnAddExpense";
-            btnAddExpense.Size = new Size(260, 107);
+            btnAddExpense.Size = new Size(184, 73);
             btnAddExpense.TabIndex = 5;
             btnAddExpense.Text = "Add Expense";
             btnAddExpense.UseVisualStyleBackColor = true;
@@ -69,34 +77,48 @@
             // txtCurrentBalance
             // 
             txtCurrentBalance.Enabled = false;
-            txtCurrentBalance.Location = new Point(294, 90);
-            txtCurrentBalance.Margin = new Padding(5, 5, 5, 5);
+            txtCurrentBalance.Location = new Point(270, 135);
+            txtCurrentBalance.Margin = new Padding(4, 3, 4, 3);
             txtCurrentBalance.Name = "txtCurrentBalance";
-            txtCurrentBalance.Size = new Size(252, 47);
+            txtCurrentBalance.Size = new Size(179, 34);
             txtCurrentBalance.TabIndex = 6;
             // 
             // grpBxTransactions
             // 
-            grpBxTransactions.Location = new Point(66, 243);
-            grpBxTransactions.Margin = new Padding(5, 5, 5, 5);
+            grpBxTransactions.FlatStyle = FlatStyle.Popup;
+            grpBxTransactions.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            grpBxTransactions.Location = new Point(29, 206);
+            grpBxTransactions.Margin = new Padding(4, 3, 4, 3);
             grpBxTransactions.Name = "grpBxTransactions";
-            grpBxTransactions.Padding = new Padding(5, 5, 5, 5);
-            grpBxTransactions.Size = new Size(507, 266);
+            grpBxTransactions.Padding = new Padding(4, 3, 4, 3);
+            grpBxTransactions.Size = new Size(420, 204);
             grpBxTransactions.TabIndex = 7;
             grpBxTransactions.TabStop = false;
             grpBxTransactions.Text = "Recent Transactions";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(231, 26);
+            label2.Name = "label2";
+            label2.Size = new Size(183, 41);
+            label2.TabIndex = 8;
+            label2.Text = "Home Form";
+            // 
             // HomeScreen
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(12F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1039, 738);
+            ClientSize = new Size(733, 605);
+            Controls.Add(label2);
             Controls.Add(grpBxTransactions);
             Controls.Add(txtCurrentBalance);
             Controls.Add(btnAddExpense);
             Controls.Add(btnAddIncome);
             Controls.Add(label1);
-            Margin = new Padding(5, 5, 5, 5);
+            Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "HomeScreen";
             Text = "Finance Tracker";
             ResumeLayout(false);
@@ -110,5 +132,6 @@
         private Button btnAddExpense;
         private TextBox txtCurrentBalance;
         private GroupBox grpBxTransactions;
+        private Label label2;
     }
 }
