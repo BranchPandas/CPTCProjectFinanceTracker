@@ -10,7 +10,7 @@ namespace CPTCProjectFinanceTracker;
 public class Transactions
 {
     [Key]
-    public int TransationId { get; set; }
+    public int TransactionId { get; set; }
     public DateOnly TransactionDate { get; set; }
     [Required]
     public int AccountId { get; set; }
