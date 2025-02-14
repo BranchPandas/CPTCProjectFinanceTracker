@@ -32,12 +32,12 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            button1 = new Button();
+            btnAddIncomeTransaction = new Button();
             label5 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            dtpIncomeDate = new DateTimePicker();
+            txtbxIncomeName = new TextBox();
+            txtbxIncomeAmount = new TextBox();
+            txtbxIncomeDescription = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -80,17 +80,18 @@
             label4.TabIndex = 3;
             label4.Text = "Description:";
             // 
-            // button1
+            // btnAddIncomeTransaction
             // 
-            button1.FlatAppearance.BorderSize = 4;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(186, 353);
-            button1.Name = "button1";
-            button1.Size = new Size(292, 68);
-            button1.TabIndex = 4;
-            button1.Text = "Add Item to Income";
-            button1.UseVisualStyleBackColor = true;
+            btnAddIncomeTransaction.FlatAppearance.BorderSize = 4;
+            btnAddIncomeTransaction.FlatStyle = FlatStyle.Flat;
+            btnAddIncomeTransaction.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddIncomeTransaction.Location = new Point(186, 353);
+            btnAddIncomeTransaction.Name = "btnAddIncomeTransaction";
+            btnAddIncomeTransaction.Size = new Size(292, 68);
+            btnAddIncomeTransaction.TabIndex = 4;
+            btnAddIncomeTransaction.Text = "Add Item to Income";
+            btnAddIncomeTransaction.UseVisualStyleBackColor = true;
+            btnAddIncomeTransaction.Click += btnAddIncomeTransaction_Click;
             // 
             // label5
             // 
@@ -102,46 +103,46 @@
             label5.TabIndex = 5;
             label5.Text = "Date:";
             // 
-            // dateTimePicker1
+            // dtpIncomeDate
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(194, 289);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(163, 31);
-            dateTimePicker1.TabIndex = 6;
+            dtpIncomeDate.Format = DateTimePickerFormat.Short;
+            dtpIncomeDate.Location = new Point(194, 289);
+            dtpIncomeDate.Name = "dtpIncomeDate";
+            dtpIncomeDate.Size = new Size(163, 31);
+            dtpIncomeDate.TabIndex = 6;
             // 
-            // textBox1
+            // txtbxIncomeName
             // 
-            textBox1.Location = new Point(194, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(268, 31);
-            textBox1.TabIndex = 7;
+            txtbxIncomeName.Location = new Point(194, 114);
+            txtbxIncomeName.Name = "txtbxIncomeName";
+            txtbxIncomeName.Size = new Size(268, 31);
+            txtbxIncomeName.TabIndex = 7;
             // 
-            // textBox2
+            // txtbxIncomeAmount
             // 
-            textBox2.Location = new Point(194, 167);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
-            textBox2.TabIndex = 8;
+            txtbxIncomeAmount.Location = new Point(194, 167);
+            txtbxIncomeAmount.Name = "txtbxIncomeAmount";
+            txtbxIncomeAmount.Size = new Size(150, 31);
+            txtbxIncomeAmount.TabIndex = 8;
             // 
-            // textBox3
+            // txtbxIncomeDescription
             // 
-            textBox3.Location = new Point(194, 231);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(480, 31);
-            textBox3.TabIndex = 9;
+            txtbxIncomeDescription.Location = new Point(194, 231);
+            txtbxIncomeDescription.Name = "txtbxIncomeDescription";
+            txtbxIncomeDescription.Size = new Size(480, 31);
+            txtbxIncomeDescription.TabIndex = 9;
             // 
             // AddIncomeForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(691, 450);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(txtbxIncomeDescription);
+            Controls.Add(txtbxIncomeAmount);
+            Controls.Add(txtbxIncomeName);
+            Controls.Add(dtpIncomeDate);
             Controls.Add(label5);
-            Controls.Add(button1);
+            Controls.Add(btnAddIncomeTransaction);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -158,11 +159,11 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Button button1;
+        private Button btnAddIncomeTransaction;
         private Label label5;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private DateTimePicker dtpIncomeDate;
+        private TextBox txtbxIncomeName;
+        private TextBox txtbxIncomeAmount;
+        private TextBox txtbxIncomeDescription;
     }
 }
