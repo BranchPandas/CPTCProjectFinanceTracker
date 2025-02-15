@@ -17,29 +17,13 @@ namespace CPTCProjectFinanceTracker
             InitializeComponent();
         }
 
-        private void ExpensesScreen_Load(object sender, EventArgs e)
-        {
+     
+   
 
-        }
+       
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+  
 
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }
