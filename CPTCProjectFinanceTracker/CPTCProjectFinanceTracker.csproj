@@ -18,13 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Forms\AddExpensesForm.cs">
+    <Compile Update="Views\AddExpensesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AddIncomeForm.cs">
+    <Compile Update="Views\AddIncomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\HomeScreen.cs">
+    <Compile Update="Views\HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CPTCProjectFinanceTracker.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,12 @@ public class FinanceTrackingContext : DbContext
         options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CPTCFinanceTracker;Trusted_Connection=True;");
     }
     /// <summary>
-    /// This tells EF Core to track Transactions in the database.
-    /// This is the table that will be created in the database.
+    /// This tells EF Core what to track in the database.
+    /// These are the tables that will be created in the database 
+    /// based on their respective model.
     /// </summary>
     public DbSet<Transactions> Transactions { get; set; }
+    public DbSet<Accounts> Accounts { get; set; }
+    public DbSet<Users> Users { get; set; }
+    public DbSet<Reminders> Reminders { get; set; }
 }
