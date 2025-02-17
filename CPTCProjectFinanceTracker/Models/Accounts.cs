@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CPTCProjectFinanceTracker.Models
 {
-    class Accounts
+    /// <summary>
+    /// The Accounts class represents a user's account in the finance tracker application.
+    /// </summary>
+    public class Accounts
     {
         /// <summary>
         /// The unique identifier for each Account
@@ -16,7 +20,7 @@ namespace CPTCProjectFinanceTracker.Models
         public int AccountId { get; set; }
 
         /// <summary>
-        /// The unique identifier for each User
+        /// The foreign key for the Users class
         /// </summary>
         [Required]
         public int UserId { get; set; }

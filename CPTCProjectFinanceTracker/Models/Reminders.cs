@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace CPTCProjectFinanceTracker.Models
 {
-    class Reminders
+    /// <summary>
+    /// The Reminders class represents a user's reminder in the finance tracker application.
+    /// </summary>
+    public class Reminders
     {
         /// <summary>
         /// Primary key for the reminders table
