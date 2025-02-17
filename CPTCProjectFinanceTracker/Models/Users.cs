@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace CPTCProjectFinanceTracker.Models
 {
-    class Users
+    /// <summary>
+    /// The Users class represents a user in the finance tracker application.
+    /// </summary>
+    public class Users
     {
         /// <summary>
         /// The unique identifier for each User
