@@ -18,11 +18,13 @@ namespace CPTCProjectFinanceTracker;
 public partial class AddIncomeForm : Form
 {
     private readonly TransactionController _controller;
+    private readonly HomeScreen _homeScreen;
 
-    public AddIncomeForm()
+    public AddIncomeForm(HomeScreen homeScreen)
     {
         InitializeComponent();
         _controller = new TransactionController();
+        _homeScreen = homeScreen;
     }
 
     private void btnAddIncomeTransaction_Click(object sender, EventArgs e)
@@ -44,6 +46,7 @@ public partial class AddIncomeForm : Form
             _controller.SaveTransaction(transaction);
             ClearFields();
             Confirm();
+            _homeScreen.LoadAccountBalance();
         }
         catch (Exception ex)
         {

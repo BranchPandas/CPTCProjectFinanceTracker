@@ -1,4 +1,5 @@
-﻿using CPTCProjectFinanceTracker.Controllers;
+﻿using CPTCProjectFinanceTracker;
+using CPTCProjectFinanceTracker.Controllers;
 using CPTCProjectFinanceTracker.Models;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,13 @@ namespace CPTCProjectFinanceTracker
     {
 
         private readonly TransactionController _controller;
+        private readonly HomeScreen _homeScreen;
 
-        public AddExpensesForm()
+        public AddExpensesForm(HomeScreen homeScreen)
         {
             InitializeComponent();
             _controller = new TransactionController();
+            _homeScreen = homeScreen;
         }
 
         /// <summary>
@@ -50,6 +53,7 @@ namespace CPTCProjectFinanceTracker
                 _controller.SaveTransaction(transaction);
                 ResetExpenseForm();
                 Confirm();
+                _homeScreen.LoadAccountBalance();
             }
             catch (Exception ex)
             {
