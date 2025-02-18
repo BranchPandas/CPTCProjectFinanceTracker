@@ -7,38 +7,49 @@ using System.Threading.Tasks;
 
 namespace CPTCProjectFinanceTracker.Models;
 
+/// <summary>
+/// The Transactions class represents a transaction in the finance tracker application.
+/// </summary>
 public class Transactions
 {
     /// <summary>
-    /// Unique identifier for each transaction
+    /// The unique identifier for each Transaction
     /// </summary>
     [Key]
     public int TransactionId { get; set; }
+
     /// <summary>
-    /// The date of the transaction was created
+    /// The date of the Transaction
     /// </summary>
+    [Required]
     public DateOnly TransactionDate { get; set; }
+
     /// <summary>
-    /// The account that the transaction is associated with
+    /// The foreign key for the Accounts class
     /// </summary>
     [Required]
     public int AccountId { get; set; }
+
     /// <summary>
-    /// The amount of the transaction
+    /// The amount of the Transaction
     /// </summary>
     [Required]
     public decimal TransactionAmount { get; set; }
+
     /// <summary>
-    /// The type of the transaction (Income or Expense)
+    /// The type of the Transaction
     /// </summary>
     [Required]
     public string? TransactionType { get; set; }
+
     /// <summary>
-    /// A short description of the transaction (optional)
+    /// The description of the Transaction
     /// </summary>
+    [Required]
     public string? TransactionDescription { get; set; }
+
     /// <summary>
-    /// The category of the transaction
+    /// The foreign key for the Category class
     /// </summary>
     [Required]
     public int CategoryId { get; set; }

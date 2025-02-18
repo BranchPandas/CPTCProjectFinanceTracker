@@ -5,15 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPTCProjectFinanceTracker.Models;
-
-public class Users
+namespace CPTCProjectFinanceTracker.Models
 {
     /// <summary>
-    /// The unique identifier for each User
+    /// The Users class represents a user in the finance tracker application.
     /// </summary>
-    [Key]
-    public int UserID { get; set; }
+    public class Users
+    {
+        /// <summary>
+        /// The unique identifier for each User
+        /// </summary>
+        [Key]
+        public int UserID { get; set; }
 
     /// <summary>
     /// The user's Full name

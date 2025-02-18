@@ -6,15 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPTCProjectFinanceTracker.Models;
-
-public class Reminders
+namespace CPTCProjectFinanceTracker.Models
 {
     /// <summary>
-    /// Primary key for the reminders table
+    /// The Reminders class represents a user's reminder in the finance tracker application.
     /// </summary>
-    [Key]
-    public int ReminderId { get; set; }
+    public class Reminders
+    {
+        /// <summary>
+        /// Primary key for the reminders table
+        /// </summary>
+        [Key]
+        public int ReminderId { get; set; }
 
     /// <summary>
     /// Foreign key to the users table
