@@ -25,16 +25,17 @@ namespace CPTCProjectFinanceTracker.Models
         [Required]
         public int UserId { get; set; }
 
-    /// <summary>
-    /// The name of the Account
-    /// </summary>
-    [Required]
-    public string AccountName { get; set; }
+        /// <summary>
+        /// The name of the Account
+        /// </summary>
+        [Required]
+        public string AccountName { get; set; }
 
-    /// <summary>
-    /// The current balance of the Account
-    /// </summary>
-    [Required]
-    public decimal AccountBalance { get; set; }
+        /// <summary>
+        /// The current balance of the Account
+        /// </summary>
+        [Required]
+        public decimal AccountBalance { get; set; }
 
+    }
 }
