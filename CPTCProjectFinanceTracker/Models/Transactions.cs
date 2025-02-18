@@ -54,4 +54,5 @@ public class Transactions
     [Required]
     public int CategoryId { get; set; }
 
+  
 }

@@ -29,10 +29,22 @@ namespace CPTCProjectFinanceTracker.Controllers
         /// and saves it to the database
         /// </summary>
         /// <param name="transaction"></param>
-        public void SaveTransaction(Transactions transaction)
+        /// <returns>Transaction Id</returns>
+        public int SaveTransaction(Transactions transaction)
         {
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
+            return transaction.TransactionId;
+        }
+
+        public Transactions? GetTransactionById(int id)
+        {
+            Transactions? transaction = _context.Transactions.Find(id);
+            if (transaction != null)
+            {
+                return transaction;
+            }
+            return null;
         }
     }
 
