@@ -23,7 +23,7 @@ namespace CPTCProjectFinanceTracker.Controllers.Tests
                 TransactionType = "Deposit",
                 TransactionDate = DateOnly.FromDateTime(DateTime.Now),
                 TransactionDescription = "Test transaction",
-                CategoryId = 1, // Assuming 1 is a valid category ID for testing
+                CategoryId = 1, // Assuming 1 is a valid category ID for testing  
             };
             
 
