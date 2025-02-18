@@ -53,4 +53,5 @@ public class Transactions
     /// </summary>
     [Required]
     public int CategoryId { get; set; }
+
 }
