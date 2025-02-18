@@ -52,13 +52,12 @@ public partial class AddIncomeForm : Form
     } 
     private void ClearFields()
     {
-        txtbxIncomeName.Clear();
         txtbxIncomeAmount.Clear();
         txtbxIncomeDescription.Clear();
     }
 
     private void Confirm()
     {
-        MessageBox.Show("Transaction added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show("Income added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }
