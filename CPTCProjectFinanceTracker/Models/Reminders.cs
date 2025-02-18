@@ -19,20 +19,21 @@ namespace CPTCProjectFinanceTracker.Models
         [Key]
         public int ReminderId { get; set; }
 
-    /// <summary>
-    /// Foreign key to the users table
-    /// </summary>
-    [Required]
-    public int UserId { get; set; }
+        /// <summary>
+        /// Foreign key to the users table
+        /// </summary>
+        [Required]
+        public int UserId { get; set; }
 
-    /// <summary>
-    /// Date of the reminder
-    /// </summary>
-    public DateTime ReminderDate { get; set; }
+        /// <summary>
+        /// Date of the reminder
+        /// </summary>
+        public DateTime ReminderDate { get; set; }
 
-    /// <summary>
-    /// Description of the reminder
-    /// </summary>
-    public string ReminderDescription { get; set; }
+        /// <summary>
+        /// Description of the reminder
+        /// </summary>
+        public string ReminderDescription { get; set; }
 
+    }
 }

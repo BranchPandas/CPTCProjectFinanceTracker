@@ -18,27 +18,29 @@ namespace CPTCProjectFinanceTracker.Models
         [Key]
         public int UserID { get; set; }
 
-    /// <summary>
-    /// The user's Full name
-    /// </summary>
-    [Required]
-    public string UserName { get; set; }
+        /// <summary>
+        /// The user's Full name
+        /// </summary>
+        [Required]
+        public string UserName { get; set; }
 
-    /// <summary>
-    /// The user's email address
-    /// </summary>
-    [Required]
-    public string UserEmail { get; set; }
+        /// <summary>
+        /// The user's email address
+        /// </summary>
+        [Required]
+        public string UserEmail { get; set; }
 
-    /// <summary>
-    /// The user's password
-    /// </summary>
-    [Required]
-    public string UserPassword { get; set; }
+        /// <summary>
+        /// The user's password
+        /// </summary>
+        [Required]
+        public string UserPassword { get; set; }
 
-    /// <summary>
-    /// The time stamp when the user was created
-    /// </summary>
-    [Required]
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        /// <summary>
+        /// The time stamp when the user was created
+        /// </summary>
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    }
 }
+
