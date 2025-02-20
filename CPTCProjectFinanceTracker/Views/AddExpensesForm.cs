@@ -79,6 +79,8 @@ namespace CPTCProjectFinanceTracker
         private void btnManageCategories_Click(object sender, EventArgs e)
         {
             // Open the ManageCategoriesForm
+            Views.formManageCategories manageCategoriesForm = new Views.formManageCategories(TransactionType.Expense.ToString());
+            manageCategoriesForm.Show();
         }
     }
 }
