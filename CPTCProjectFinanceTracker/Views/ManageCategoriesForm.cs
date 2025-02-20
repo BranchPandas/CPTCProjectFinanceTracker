@@ -28,8 +28,6 @@ namespace CPTCProjectFinanceTracker.Views
             // Populate the listbox with categories from the database
 
             this.Text = $"Manage {categoryType} Categories";
-        }
-
-       
+        } 
     }
 }

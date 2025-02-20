@@ -52,7 +52,7 @@ public partial class AddIncomeForm : Form
         {
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-    } 
+    }
     private void ClearFields()
     {
         txtbxIncomeAmount.Clear();
@@ -62,5 +62,12 @@ public partial class AddIncomeForm : Form
     private void Confirm()
     {
         MessageBox.Show("Income added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void btnManageCategories_Click(object sender, EventArgs e)
+    {
+        // Open the ManageCategoriesForm
+        Views.formManageCategories manageCategoriesForm = new Views.formManageCategories(TransactionType.Income.ToString());
+        manageCategoriesForm.Show();
     }
 }

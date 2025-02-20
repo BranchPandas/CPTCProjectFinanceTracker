@@ -38,6 +38,7 @@
             txtbxIncomeAmount = new TextBox();
             txtbxIncomeDescription = new TextBox();
             cmboBxIncomeCategory = new ComboBox();
+            btnManageCategories = new Button();
             SuspendLayout();
             // 
             // label1
@@ -142,12 +143,23 @@
             cmboBxIncomeCategory.Size = new Size(302, 49);
             cmboBxIncomeCategory.TabIndex = 1;
             // 
+            // btnManageCategories
+            // 
+            btnManageCategories.Location = new Point(647, 185);
+            btnManageCategories.Name = "btnManageCategories";
+            btnManageCategories.Size = new Size(339, 49);
+            btnManageCategories.TabIndex = 11;
+            btnManageCategories.Text = "⚙ Manage Categories ";
+            btnManageCategories.UseVisualStyleBackColor = true;
+            btnManageCategories.Click += btnManageCategories_Click;
+            // 
             // AddIncomeForm
             // 
             AcceptButton = btnAddIncomeTransaction;
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1175, 738);
+            Controls.Add(btnManageCategories);
             Controls.Add(cmboBxIncomeCategory);
             Controls.Add(txtbxIncomeDescription);
             Controls.Add(txtbxIncomeAmount);
@@ -177,5 +189,6 @@
         private TextBox txtbxIncomeAmount;
         private TextBox txtbxIncomeDescription;
         private ComboBox cmboBxIncomeCategory;
+        private Button btnManageCategories;
     }
 }
