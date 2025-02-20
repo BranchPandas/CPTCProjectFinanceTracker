@@ -75,5 +75,10 @@ namespace CPTCProjectFinanceTracker
         {
             MessageBox.Show("Expense added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnManageCategories_Click(object sender, EventArgs e)
+        {
+            // Open the ManageCategoriesForm
+        }
     }
 }
