@@ -1,6 +1,6 @@
 ﻿namespace CPTCProjectFinanceTracker.Views
 {
-    partial class formManageCategories
+    partial class FormManageCategories
     {
         /// <summary>
         /// Required designer variable.

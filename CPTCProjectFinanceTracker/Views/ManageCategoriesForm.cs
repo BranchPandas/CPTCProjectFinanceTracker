@@ -17,7 +17,7 @@ namespace CPTCProjectFinanceTracker.Views
 // and interacting with the parent form (AddExpensesForm/AddIncomeForm) to update the category list.
 // Important note: The ListBox has DisplayMember set to CategoryName
 {
-    public partial class formManageCategories : Form
+    public partial class FormManageCategories : Form
     {
 
         private readonly TransactionType categoryType;
@@ -29,7 +29,7 @@ namespace CPTCProjectFinanceTracker.Views
         /// </summary>
         /// <param name="categoryType">The type of category (Expense or Income) to manage.</param>
         /// <param name="parentForm">The Expense or Income Form</param>
-        public formManageCategories(TransactionType categoryType, Form parentForm)
+        public FormManageCategories(TransactionType categoryType, Form parentForm)
         {
             this.categoryType = categoryType;
             this.parentForm = (AddExpensesForm)parentForm;
