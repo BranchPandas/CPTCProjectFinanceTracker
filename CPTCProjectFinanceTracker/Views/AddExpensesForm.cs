@@ -24,6 +24,14 @@ namespace CPTCProjectFinanceTracker
             InitializeComponent();
             _controller = new TransactionController();
             _homeScreen = homeScreen;
+
+            // Add the Expense Categories to the ComboBox
+            CategoryController categoryController = new();
+            List<Categories> categories = categoryController.GetAll(TransactionType.Expense);
+            foreach (Categories category in categories)
+            {
+                cmboBxExpenseCategory.Items.Add(category);
+            }
         }
 
         /// <summary>

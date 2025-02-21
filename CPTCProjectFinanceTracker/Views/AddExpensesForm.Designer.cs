@@ -130,6 +130,7 @@
             // 
             // cmboBxExpenseCategory
             // 
+            cmboBxExpenseCategory.DisplayMember = "CategoryName";
             cmboBxExpenseCategory.FormattingEnabled = true;
             cmboBxExpenseCategory.Location = new Point(384, 116);
             cmboBxExpenseCategory.Name = "cmboBxExpenseCategory";

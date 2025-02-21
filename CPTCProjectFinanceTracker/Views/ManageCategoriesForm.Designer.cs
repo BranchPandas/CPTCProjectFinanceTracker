@@ -32,7 +32,7 @@
             txtBxCategoryName = new TextBox();
             label1 = new Label();
             btnUpsertCategory = new Button();
-            button2 = new Button();
+            btnDeleteCategory = new Button();
             SuspendLayout();
             // 
             // lstBxCategories
@@ -74,15 +74,16 @@
             btnUpsertCategory.UseVisualStyleBackColor = true;
             btnUpsertCategory.Click += btnUpsertCategory_Click;
             // 
-            // button2
+            // btnDeleteCategory
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(24, 624);
-            button2.Name = "button2";
-            button2.Size = new Size(747, 49);
-            button2.TabIndex = 4;
-            button2.Text = "Delete Category";
-            button2.UseVisualStyleBackColor = true;
+            btnDeleteCategory.Enabled = false;
+            btnDeleteCategory.Location = new Point(24, 624);
+            btnDeleteCategory.Name = "btnDeleteCategory";
+            btnDeleteCategory.Size = new Size(747, 49);
+            btnDeleteCategory.TabIndex = 4;
+            btnDeleteCategory.Text = "Delete Category";
+            btnDeleteCategory.UseVisualStyleBackColor = true;
+            btnDeleteCategory.Click += btnDeleteCategory_Click;
             // 
             // formManageCategories
             // 
@@ -90,7 +91,7 @@
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(813, 685);
-            Controls.Add(button2);
+            Controls.Add(btnDeleteCategory);
             Controls.Add(btnUpsertCategory);
             Controls.Add(label1);
             Controls.Add(txtBxCategoryName);
@@ -108,5 +109,6 @@
         private Label label1;
         private Button btnUpsertCategory;
         private Button button2;
+        private Button btnDeleteCategory;
     }
 }

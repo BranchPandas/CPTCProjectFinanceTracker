@@ -17,16 +17,21 @@ namespace CPTCProjectFinanceTracker.Views
 
         private readonly TransactionType categoryType;
 
+        /// <summary>
+        /// Constructor for creating this form.
+        /// Initializes the form components and renders the category form.
+        /// </summary>
+        /// <param name="categoryType">The type of category (Expense or Income) to manage.</param>
         public formManageCategories(TransactionType categoryType)
         {
             this.categoryType = categoryType;
             InitializeComponent();
             renderCategoryForm();
-
-
-
         }
 
+        /// <summary>
+        /// Renders the category form by setting the form title and populating the listbox with categories.
+        /// </summary>
         private void renderCategoryForm()
         {
             // Populate the form title with correct name (Expense or Income)
@@ -46,11 +51,11 @@ namespace CPTCProjectFinanceTracker.Views
         }
 
         /// <summary>
-        /// Add a category to the listbox
+        /// Add a category to the listbox.
         /// The name of the category is displayed in 
-        /// the listbox via the DisplayMember property
+        /// the listbox via the DisplayMember property.
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">The category item to be added to the listbox.</param>
         private void addCategoryToListBox(Categories item)
         {
             lstBxCategories.Items.Add(item);
@@ -58,6 +63,13 @@ namespace CPTCProjectFinanceTracker.Views
 
 
 
+        /// <summary>
+        /// Handles the click event for the Upsert Category button.
+        /// Validates the input, checks if a category is selected, and either updates the selected category
+        /// or creates a new category. Refreshes the listbox and resets the form after the operation.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An EventArgs that contains the event data.</param>
         private void btnUpsertCategory_Click(object sender, EventArgs e)
         {
             // Make sure the input has value
@@ -76,7 +88,8 @@ namespace CPTCProjectFinanceTracker.Views
             Categories? selectedCategory = (Categories?)lstBxCategories.SelectedItem;
             CategoryController categoryController = new();
 
-            if (selectedCategory != null) {
+            if (selectedCategory != null)
+            {
 
                 // Update the actual Category in DB and instance
                 selectedCategory.CategoryName = txtBxCategoryName.Text;
@@ -90,7 +103,7 @@ namespace CPTCProjectFinanceTracker.Views
             else
             {
 
-               
+
                 // Create a new category
                 Categories category = new()
                 {
@@ -104,20 +117,23 @@ namespace CPTCProjectFinanceTracker.Views
                 addCategoryToListBox(category);
             }
 
-            // Clear input / reset form
-            txtBxCategoryName.Text = String.Empty;
-            btnUpsertCategory.Text = "Create Category";
-            // Unselect item
-            lstBxCategories.SelectedItem = null;
+            resetForm();
         }
 
+        /// <summary>
+        /// Handles the event when the selected index of the listbox changes.
+        /// Updates the input field with the selected category's name, changes the button text to "Update Category",
+        /// focuses the text input, and enables the delete button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An EventArgs that contains the event data.</param>
         private void lstBxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-       
+
 
             // Get the selected category
-           Categories? category =  (Categories?)lstBxCategories.SelectedItem;
+            Categories? category = (Categories?)lstBxCategories.SelectedItem;
 
             if (category != null)
             {
@@ -128,10 +144,55 @@ namespace CPTCProjectFinanceTracker.Views
 
                 // Focus the text input
                 txtBxCategoryName.Focus();
-            }
-          
-            
 
+                // Enable the delete button
+                btnDeleteCategory.Enabled = true;
+
+            }
+
+
+
+        }
+
+        /// <summary>
+        /// Handles the click event for the Delete Category button.
+        /// Removes the selected category from the database and the listbox.
+        /// Resets the form after the operation.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An EventArgs that contains the event data.</param>
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            // Get the selected item
+            Categories? category = (Categories?)lstBxCategories.SelectedItem;
+
+            if (category != null)
+            {
+                // Remove item from database
+                CategoryController categoryController = new();
+                categoryController.Delete(category);
+                // Remove item from UI
+                lstBxCategories.Items.Remove(category);
+
+                resetForm();
+            }
+        }
+
+
+        /// <summary>
+        /// Resets the form to its default state.
+        /// Clears the input field, sets the button text to "Create Category",
+        /// disables the delete button, and deselects any selected item in the listbox.
+        /// </summary>
+        private void resetForm()
+        {
+            // Clear input / reset form
+            txtBxCategoryName.Text = String.Empty;
+            btnUpsertCategory.Text = "Create Category";
+            // Disable the delete button
+            btnDeleteCategory.Enabled = false;
+
+            lstBxCategories.SelectedItem = null;
         }
     }
 }
