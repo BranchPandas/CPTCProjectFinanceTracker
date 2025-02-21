@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
-            textBox1 = new TextBox();
+            lstBxCategories = new ListBox();
+            txtBxCategoryName = new TextBox();
             label1 = new Label();
-            button1 = new Button();
+            btnUpsertCategory = new Button();
             button2 = new Button();
             SuspendLayout();
             // 
-            // listBox1
+            // lstBxCategories
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Items.AddRange(new object[] { "test", "test2", "test 3" });
-            listBox1.Location = new Point(24, 67);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(747, 414);
-            listBox1.TabIndex = 0;
+            lstBxCategories.FormattingEnabled = true;
+            lstBxCategories.Items.AddRange(new object[] { "test", "test2", "test 3" });
+            lstBxCategories.Location = new Point(24, 67);
+            lstBxCategories.Name = "lstBxCategories";
+            lstBxCategories.Size = new Size(747, 414);
+            lstBxCategories.TabIndex = 0;
             // 
-            // textBox1
+            // txtBxCategoryName
             // 
-            textBox1.Location = new Point(24, 503);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Create or Update by selecting from the list";
-            textBox1.Size = new Size(747, 47);
-            textBox1.TabIndex = 1;
+            txtBxCategoryName.Location = new Point(24, 503);
+            txtBxCategoryName.Name = "txtBxCategoryName";
+            txtBxCategoryName.PlaceholderText = "Create or Update by selecting from the list";
+            txtBxCategoryName.Size = new Size(747, 47);
+            txtBxCategoryName.TabIndex = 1;
             // 
             // label1
             // 
@@ -62,14 +62,15 @@
             label1.TabIndex = 2;
             label1.Text = "Expense Categories";
             // 
-            // button1
+            // btnUpsertCategory
             // 
-            button1.Location = new Point(24, 562);
-            button1.Name = "button1";
-            button1.Size = new Size(747, 49);
-            button1.TabIndex = 3;
-            button1.Text = "Create Category";
-            button1.UseVisualStyleBackColor = true;
+            btnUpsertCategory.Location = new Point(24, 562);
+            btnUpsertCategory.Name = "btnUpsertCategory";
+            btnUpsertCategory.Size = new Size(747, 49);
+            btnUpsertCategory.TabIndex = 3;
+            btnUpsertCategory.Text = "Create Category";
+            btnUpsertCategory.UseVisualStyleBackColor = true;
+            btnUpsertCategory.Click += btnUpsertCategory_Click;
             // 
             // button2
             // 
@@ -87,10 +88,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(813, 685);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnUpsertCategory);
             Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(listBox1);
+            Controls.Add(txtBxCategoryName);
+            Controls.Add(lstBxCategories);
             Name = "formManageCategories";
             Text = "Manage Expense Categories ";
             ResumeLayout(false);
@@ -99,10 +100,10 @@
 
         #endregion
 
-        private ListBox listBox1;
-        private TextBox textBox1;
+        private ListBox lstBxCategories;
+        private TextBox txtBxCategoryName;
         private Label label1;
-        private Button button1;
+        private Button btnUpsertCategory;
         private Button button2;
     }
 }

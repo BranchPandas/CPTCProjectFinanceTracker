@@ -67,7 +67,7 @@ public partial class AddIncomeForm : Form
     private void btnManageCategories_Click(object sender, EventArgs e)
     {
         // Open the ManageCategoriesForm
-        Views.formManageCategories manageCategoriesForm = new Views.formManageCategories(TransactionType.Income.ToString());
+        Views.formManageCategories manageCategoriesForm = new Views.formManageCategories(TransactionType.Income);
         manageCategoriesForm.Show();
     }
 }
