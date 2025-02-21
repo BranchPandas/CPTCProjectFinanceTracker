@@ -77,7 +77,7 @@ public partial class HomeScreen : Form
         AddIncomeForm addIncomeForm = new AddIncomeForm(this);
         addIncomeForm.Show();
     }
-    private void LoadRecentTransactions()
+    public void LoadRecentTransactions()
     {
         try
         {
