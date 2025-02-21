@@ -103,6 +103,12 @@ namespace CPTCProjectFinanceTracker.Views
                 // Add the category to the listbox
                 addCategoryToListBox(category);
             }
+
+            // Clear input / reset form
+            txtBxCategoryName.Text = String.Empty;
+            btnUpsertCategory.Text = "Create Category";
+            // Unselect item
+            lstBxCategories.SelectedItem = null;
         }
 
         private void lstBxCategories_SelectedIndexChanged(object sender, EventArgs e)
