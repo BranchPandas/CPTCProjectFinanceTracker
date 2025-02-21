@@ -46,7 +46,7 @@ public partial class AddIncomeForm : Form
             _controller.SaveTransaction(transaction);
             ClearFields();
             Confirm();
-            _homeScreen.LoadAccountBalance();
+            //_homeScreen.LoadAccountBalance();
         }
         catch (Exception ex)
         {

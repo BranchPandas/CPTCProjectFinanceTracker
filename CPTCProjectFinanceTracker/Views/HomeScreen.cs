@@ -1,31 +1,66 @@
 using CPTCProjectFinanceTracker.Controllers;
+using CPTCProjectFinanceTracker.Models;
+using Microsoft.Identity.Client;
 
 namespace CPTCProjectFinanceTracker;
 
 public partial class HomeScreen : Form
 {
     private readonly TransactionController _controller;
-    public HomeScreen()
+    private readonly UserController _userController;
+    private readonly int _userId;
+    private Users? _user;
+
+    public HomeScreen(int userId)
     {
         InitializeComponent();
+        _userController = new UserController();
         _controller = new TransactionController();
-        LoadAccountBalance();
+        _userId = userId;
+        LoadUserData();
+        TempLoadAccountBalance();
     }
 
-    public void LoadAccountBalance()
+    private void LoadUserData()
     {
         try
         {
-            // Need to create a method to get the current user's account ID
-            int accountId = 1; // Placeholder for actual account ID
-            decimal balance = _controller.GetAccountBalance(accountId);
-            txtCurrentBalance.Text = $"{balance:C}";
+            _user = _userController.GetUserById(_userId);
+            if (_user != null)
+            {
+                label2.Text = $"{_user.UserName}'s Home Screen";
+            }
+            else
+            {
+                label2.Text = "Welcome, User!";
+                MessageBox.Show("Could not load user data.", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Error loading account balance." + ex.Message);
+            label2.Text = "Welcome, User!";
+            MessageBox.Show($"Error loading user data: {ex.Message}", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
+    // Temporary method for testing user selection
+    private void TempLoadAccountBalance()
+    {
+        try
+        {
+            // Temporary hardcoded account balance for testing
+            int tempAccount = 1; // Assuming account ID 1 exists
+            decimal balance = _controller.GetAccountBalance(tempAccount);
+            txtCurrentBalance.Text = $"User {_userId} Balance: {balance:C}";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error loading account balance: " + ex.Message);
+        }
+    }
+
     private void btnAddExpense_Click(object sender, EventArgs e)
     {
         AddExpensesForm addExpensesForm = new AddExpensesForm(this);
