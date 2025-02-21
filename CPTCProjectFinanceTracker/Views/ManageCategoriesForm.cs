@@ -11,12 +11,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CPTCProjectFinanceTracker.Views
+// This file contains the implementation of the formManageCategories class, 
+// which is responsible for managing categories (Expense or Income) in the finance tracker application.
+// It includes methods for rendering the form, adding, updating, and deleting categories, 
+// and interacting with the parent form (AddExpensesForm/AddIncomeForm) to update the category list.
+// Important note: The ListBox has DisplayMember set to CategoryName
 {
     public partial class formManageCategories : Form
     {
 
         private readonly TransactionType categoryType;
-        private Form parentForm;
+        private AddExpensesForm parentForm;
 
         /// <summary>
         /// Constructor for creating this form.
@@ -27,7 +32,7 @@ namespace CPTCProjectFinanceTracker.Views
         public formManageCategories(TransactionType categoryType, Form parentForm)
         {
             this.categoryType = categoryType;
-            this.parentForm = parentForm;
+            this.parentForm = (AddExpensesForm)parentForm;
             InitializeComponent();
             renderCategoryForm();
         }
@@ -61,6 +66,7 @@ namespace CPTCProjectFinanceTracker.Views
         /// <param name="item">The category item to be added to the listbox.</param>
         private void addCategoryToListBox(Categories item)
         {
+            // Important note: The ListBox has DisplayMember set to CategoryName
             lstBxCategories.Items.Add(item);
         }
 
@@ -103,7 +109,7 @@ namespace CPTCProjectFinanceTracker.Views
                 lstBxCategories.Items[selectedIndex] = selectedCategory;
 
                 // Update the item in the parentForm dropdown
-
+                parentForm.UpdateCategoryItem(selectedCategory);
             }
             else
             {
@@ -122,6 +128,7 @@ namespace CPTCProjectFinanceTracker.Views
                 addCategoryToListBox(category);
 
                 // Add Category to parent form dropdown
+                parentForm.AddCategoryItem(category);
             }
 
             resetForm();
@@ -136,8 +143,6 @@ namespace CPTCProjectFinanceTracker.Views
         /// <param name="e">An EventArgs that contains the event data.</param>
         private void lstBxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
 
             // Get the selected category
             Categories? category = (Categories?)lstBxCategories.SelectedItem;
@@ -156,9 +161,6 @@ namespace CPTCProjectFinanceTracker.Views
                 btnDeleteCategory.Enabled = true;
 
             }
-
-
-
         }
 
         /// <summary>
@@ -180,6 +182,9 @@ namespace CPTCProjectFinanceTracker.Views
                 categoryController.Delete(category);
                 // Remove item from UI
                 lstBxCategories.Items.Remove(category);
+
+                // delete item from parent from
+                parentForm.RemoveCategoryItem(category);
 
                 resetForm();
             }

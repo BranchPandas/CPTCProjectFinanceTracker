@@ -35,6 +35,61 @@ namespace CPTCProjectFinanceTracker
         }
 
         /// <summary>
+        /// Removes a category item from the expense category ComboBox.
+        /// </summary>
+        /// <param name="category">The category to be removed.</param>
+        public void RemoveCategoryItem(Categories category)
+        {
+            // Find the category by its ID
+            Categories? itemToRemove = cmboBxExpenseCategory.Items
+                .Cast<Categories>()
+                .FirstOrDefault(c => c.CategoryId == category.CategoryId);
+
+            // Remove the category if found
+            if (itemToRemove != null)
+            {
+                cmboBxExpenseCategory.Items.Remove(itemToRemove);
+            }
+        }
+
+        /// <summary>
+        /// Updates an existing category item in the expense category ComboBox.
+        /// Finds the category by its ID and updates its details.
+        /// </summary>
+        /// <param name="category">The category to be updated.</param>
+        public void UpdateCategoryItem(Categories category)
+        {
+            // Get Category from the list
+            Categories? itemToUpdate = cmboBxExpenseCategory.Items
+                .Cast<Categories>()
+                .FirstOrDefault(c => c.CategoryId == category.CategoryId);
+
+            if (itemToUpdate != null)
+            {
+                int index = cmboBxExpenseCategory.Items.IndexOf(itemToUpdate);
+                cmboBxExpenseCategory.Items[index] = category;
+            }
+            // refresh listbox
+            cmboBxExpenseCategory.Refresh();
+        }
+
+        /// <summary>
+        /// Adds a new category item to the expense category ComboBox.
+        /// Checks if the category already exists in the ComboBox before adding.
+        /// </summary>
+        /// <param name="category">The category to be added.</param>
+        public void AddCategoryItem(Categories category)
+        {
+            if (!cmboBxExpenseCategory.Items.Cast<Categories>().Any(c => c.CategoryId == category.CategoryId))
+            {
+                cmboBxExpenseCategory.Items.Add(category);
+            }
+        }
+
+
+
+
+        /// <summary>
         /// Handles the click event for the Add Expense Transaction button.
         /// Creates a new transaction object, populates it with data from the form,
         /// and saves it using the TransactionController. Clears the form fields
