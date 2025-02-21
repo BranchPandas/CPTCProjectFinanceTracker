@@ -34,4 +34,6 @@ public class FinanceTrackingContext : DbContext
     public DbSet<Accounts> Accounts { get; set; }
     public DbSet<Users> Users { get; set; }
     public DbSet<Reminders> Reminders { get; set; }
+
+    public DbSet<Categories> Categories { get; set; }
 }

@@ -24,6 +24,14 @@ namespace CPTCProjectFinanceTracker
             InitializeComponent();
             _controller = new TransactionController();
             _homeScreen = homeScreen;
+
+            // Add the Expense Categories to the ComboBox
+            CategoryController categoryController = new();
+            List<Categories> categories = categoryController.GetAll(TransactionType.Expense);
+            foreach (Categories category in categories)
+            {
+                cmboBxExpenseCategory.Items.Add(category);
+            }
         }
 
         /// <summary>
@@ -74,6 +82,13 @@ namespace CPTCProjectFinanceTracker
         private void Confirm()
         {
             MessageBox.Show("Expense added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnManageCategories_Click(object sender, EventArgs e)
+        {
+            // Open the ManageCategoriesForm
+            Views.formManageCategories manageCategoriesForm = new Views.formManageCategories(TransactionType.Expense, this);
+            manageCategoriesForm.Show();
         }
     }
 }
