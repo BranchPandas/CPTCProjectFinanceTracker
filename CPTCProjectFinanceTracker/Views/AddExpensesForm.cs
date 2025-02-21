@@ -53,7 +53,7 @@ namespace CPTCProjectFinanceTracker
                 _controller.SaveTransaction(transaction);
                 ResetExpenseForm();
                 Confirm();
-                _homeScreen.LoadAccountBalance();
+                //_homeScreen.LoadAccountBalance();
             }
             catch (Exception ex)
             {

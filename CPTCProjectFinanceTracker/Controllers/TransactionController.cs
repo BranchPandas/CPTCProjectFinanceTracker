@@ -15,7 +15,7 @@ public class TransactionController
     /// Field to hold the database context
     /// </summary>
     private readonly FinanceTrackingContext _context;
-    
+
     /// <summary>
     /// Constructor to initialize the database context 
     /// </summary>
@@ -35,17 +35,16 @@ public class TransactionController
         _context.SaveChanges();
     }
 
-    public decimal GetAccountBalance(int accountId)
+    public decimal GetAccountBalance(int tempAccount)
     {
         var incomes = _context.Transactions
-            .Where(t => t.AccountId == accountId && t.TransactionType == "Income")
+            .Where(t => t.AccountId == tempAccount && t.TransactionType == "Income")
             .Sum(t => t.TransactionAmount);
 
         var expenses = _context.Transactions
-            .Where(t => t.AccountId == accountId && t.TransactionType == "Expense")
+            .Where(t => t.AccountId == tempAccount && t.TransactionType == "Expense")
             .Sum(t => t.TransactionAmount);
 
         return incomes - expenses;
     }
-
 }

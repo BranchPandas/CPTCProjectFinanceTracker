@@ -1,5 +1,6 @@
 ﻿using CPTCProjectFinanceTracker.Database;
 using CPTCProjectFinanceTracker.Models;
+using CPTCProjectFinanceTracker.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +25,14 @@ public class UserController
     /// </summary>
     public UserController()
     {
-        _context = new();
-        LoadUsers();
+        _context = new FinanceTrackingContext();
     }
 
     /// <summary>
     /// Loads all users from the database and converts them to UserDisplayDTO objects.
     /// Each DTO contains the user's ID and username for display purposes.
     /// </summary>
-    private void LoadUsers()
+    public List<UserDisplayDTO> LoadUsers()
     {
         List<UserDisplayDTO> users = _context.Users
             .Select(user => new UserDisplayDTO
@@ -40,5 +40,40 @@ public class UserController
                 UserId = user.UserID,
                 DisplayText = user.UserName
             }).ToList();
+        return users;
+    }
+
+    /// <summary>
+    /// This will be implemented once the Users table is linked to the Accounts table
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    internal object GetUserAccount(int userId)
+    {
+        throw new NotImplementedException();
+    }
+
+}
+
+/// <summary>
+/// This is a TEMPORARY class until the Users table is linked to the Accounts table
+/// </summary>
+public class TempAccount
+{
+    public int AccountId { get; set; }
+    public decimal Balance { get; set; }
+
+    public TempAccount GetUserAccount(int userId)
+    {
+        // Temporary mock implementation
+        return new TempAccount
+        {
+            AccountId = userId,  // Using userId as AccountId for testing
+            Balance = 0
+        };
     }
 }
+
+
+

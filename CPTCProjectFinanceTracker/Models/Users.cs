@@ -41,6 +41,7 @@ public class Users
     /// </summary>
     [Required]
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
 }
 
 /// <summary>
@@ -60,3 +61,5 @@ public record UserDisplayDTO
     /// </summary>
     public string DisplayText { get; set; }
 }
+
+
