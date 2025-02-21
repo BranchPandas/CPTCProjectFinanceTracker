@@ -73,13 +73,24 @@ namespace CPTCProjectFinanceTracker.Views
             // If it is selected, get the category, update the name, and save it.
             // If it is not selected, create a new category, set the name, and save it.
 
-            string? selectedCategory = lstBxCategories.SelectedItem?.ToString();
+            Categories? selectedCategory = (Categories?)lstBxCategories.SelectedItem;
+            CategoryController categoryController = new();
 
-            if (selectedCategory != null) { }
+            if (selectedCategory != null) {
+
+                // Update the actual Category in DB and instance
+                selectedCategory.CategoryName = txtBxCategoryName.Text;
+                categoryController.Update(selectedCategory);
+
+                // Refresh the ListBox to reflect the updated category name
+                int selectedIndex = lstBxCategories.SelectedIndex;
+                lstBxCategories.Items[selectedIndex] = selectedCategory;
+
+            }
             else
             {
 
-                CategoryController categoryController = new();
+               
                 // Create a new category
                 Categories category = new()
                 {
@@ -97,6 +108,8 @@ namespace CPTCProjectFinanceTracker.Views
         private void lstBxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+       
+
             // Get the selected category
            Categories? category =  (Categories?)lstBxCategories.SelectedItem;
 
@@ -106,6 +119,9 @@ namespace CPTCProjectFinanceTracker.Views
                 txtBxCategoryName.Text = category.CategoryName.ToString();
                 // Update the Button text to say update
                 btnUpsertCategory.Text = "Update Category";
+
+                // Focus the text input
+                txtBxCategoryName.Focus();
             }
           
             

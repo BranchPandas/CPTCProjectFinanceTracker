@@ -86,6 +86,7 @@
             // 
             // formManageCategories
             // 
+            AcceptButton = btnUpsertCategory;
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(813, 685);
