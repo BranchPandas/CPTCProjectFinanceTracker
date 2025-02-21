@@ -109,7 +109,7 @@ namespace CPTCProjectFinanceTracker.Views
                 lstBxCategories.Items[selectedIndex] = selectedCategory;
 
                 // Update the item in the parentForm dropdown
-                parentForm.UpdateCategoryItem(selectedCategory);
+                parentForm._categoryManager.UpdateCategoryItem(selectedCategory);
             }
             else
             {
@@ -128,7 +128,7 @@ namespace CPTCProjectFinanceTracker.Views
                 addCategoryToListBox(category);
 
                 // Add Category to parent form dropdown
-                parentForm.AddCategoryItem(category);
+                parentForm._categoryManager.AddCategoryItem(category);
             }
 
             resetForm();
@@ -184,7 +184,7 @@ namespace CPTCProjectFinanceTracker.Views
                 lstBxCategories.Items.Remove(category);
 
                 // delete item from parent from
-                parentForm.RemoveCategoryItem(category);
+                parentForm._categoryManager.RemoveCategoryItem(category);
 
                 resetForm();
             }

@@ -1,6 +1,7 @@
 ﻿using CPTCProjectFinanceTracker;
 using CPTCProjectFinanceTracker.Controllers;
 using CPTCProjectFinanceTracker.Models;
+using CPTCProjectFinanceTracker.Utilites;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,14 @@ namespace CPTCProjectFinanceTracker
 
         private readonly TransactionController _controller;
         private readonly HomeScreen _homeScreen;
+        public CategoryManager _categoryManager;
 
         public AddExpensesForm(HomeScreen homeScreen)
         {
             InitializeComponent();
             _controller = new TransactionController();
             _homeScreen = homeScreen;
+            _categoryManager = new CategoryManager(cmboBxExpenseCategory);
 
             // Add the Expense Categories to the ComboBox
             CategoryController categoryController = new();
@@ -34,59 +37,8 @@ namespace CPTCProjectFinanceTracker
             }
         }
 
-        /// <summary>
-        /// Removes a category item from the expense category ComboBox.
-        /// </summary>
-        /// <param name="category">The category to be removed.</param>
-        public void RemoveCategoryItem(Categories category)
-        {
-            // Find the category by its ID
-            Categories? itemToRemove = cmboBxExpenseCategory.Items
-                .Cast<Categories>()
-                .FirstOrDefault(c => c.CategoryId == category.CategoryId);
 
-            // Remove the category if found
-            if (itemToRemove != null)
-            {
-                cmboBxExpenseCategory.Items.Remove(itemToRemove);
-            }
-        }
-
-        /// <summary>
-        /// Updates an existing category item in the expense category ComboBox.
-        /// Finds the category by its ID and updates its details.
-        /// </summary>
-        /// <param name="category">The category to be updated.</param>
-        public void UpdateCategoryItem(Categories category)
-        {
-            // Get Category from the list
-            Categories? itemToUpdate = cmboBxExpenseCategory.Items
-                .Cast<Categories>()
-                .FirstOrDefault(c => c.CategoryId == category.CategoryId);
-
-            if (itemToUpdate != null)
-            {
-                int index = cmboBxExpenseCategory.Items.IndexOf(itemToUpdate);
-                cmboBxExpenseCategory.Items[index] = category;
-            }
-            // refresh listbox
-            cmboBxExpenseCategory.Refresh();
-        }
-
-        /// <summary>
-        /// Adds a new category item to the expense category ComboBox.
-        /// Checks if the category already exists in the ComboBox before adding.
-        /// </summary>
-        /// <param name="category">The category to be added.</param>
-        public void AddCategoryItem(Categories category)
-        {
-            if (!cmboBxExpenseCategory.Items.Cast<Categories>().Any(c => c.CategoryId == category.CategoryId))
-            {
-                cmboBxExpenseCategory.Items.Add(category);
-            }
-        }
-
-
+      
 
 
         /// <summary>
