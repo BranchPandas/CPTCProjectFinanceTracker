@@ -41,14 +41,22 @@ namespace CPTCProjectFinanceTracker.Views
             // populate the listbox with the categories
             foreach (Categories category in categories)
             {
-                addCategoryToListBox(category.CategoryName);
+                addCategoryToListBox(category);
             }
         }
 
-        private void addCategoryToListBox(string item)
+        /// <summary>
+        /// Add a category to the listbox
+        /// The name of the category is displayed in 
+        /// the listbox via the DisplayMember property
+        /// </summary>
+        /// <param name="item"></param>
+        private void addCategoryToListBox(Categories item)
         {
             lstBxCategories.Items.Add(item);
-        }   
+        }
+
+
 
         private void btnUpsertCategory_Click(object sender, EventArgs e)
         {
@@ -67,7 +75,9 @@ namespace CPTCProjectFinanceTracker.Views
 
             string? selectedCategory = lstBxCategories.SelectedItem?.ToString();
 
-            if (selectedCategory != null) { } else {
+            if (selectedCategory != null) { }
+            else
+            {
 
                 CategoryController categoryController = new();
                 // Create a new category
@@ -80,8 +90,26 @@ namespace CPTCProjectFinanceTracker.Views
                 categoryController.Add(category);
 
                 // Add the category to the listbox
-                addCategoryToListBox(category.CategoryName);
+                addCategoryToListBox(category);
             }
+        }
+
+        private void lstBxCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            // Get the selected category
+           Categories? category =  (Categories?)lstBxCategories.SelectedItem;
+
+            if (category != null)
+            {
+                // Update the input with value
+                txtBxCategoryName.Text = category.CategoryName.ToString();
+                // Update the Button text to say update
+                btnUpsertCategory.Text = "Update Category";
+            }
+          
+            
+
         }
     }
 }

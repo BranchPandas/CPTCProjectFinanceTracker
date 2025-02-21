@@ -37,13 +37,14 @@
             // 
             // lstBxCategories
             // 
+            lstBxCategories.DisplayMember = "CategoryName";
             lstBxCategories.FormattingEnabled = true;
-            lstBxCategories.Items.AddRange(new object[] { "test", "test2", "test 3" });
             lstBxCategories.Location = new Point(24, 67);
             lstBxCategories.Name = "lstBxCategories";
             lstBxCategories.ScrollAlwaysVisible = true;
             lstBxCategories.Size = new Size(747, 414);
             lstBxCategories.TabIndex = 0;
+            lstBxCategories.SelectedIndexChanged += lstBxCategories_SelectedIndexChanged;
             // 
             // txtBxCategoryName
             // 
