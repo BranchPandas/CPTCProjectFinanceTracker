@@ -16,15 +16,18 @@ namespace CPTCProjectFinanceTracker.Views
     {
 
         private readonly TransactionType categoryType;
+        private Form parentForm;
 
         /// <summary>
         /// Constructor for creating this form.
         /// Initializes the form components and renders the category form.
         /// </summary>
         /// <param name="categoryType">The type of category (Expense or Income) to manage.</param>
-        public formManageCategories(TransactionType categoryType)
+        /// <param name="parentForm">The Expense or Income Form</param>
+        public formManageCategories(TransactionType categoryType, Form parentForm)
         {
             this.categoryType = categoryType;
+            this.parentForm = parentForm;
             InitializeComponent();
             renderCategoryForm();
         }
@@ -99,6 +102,8 @@ namespace CPTCProjectFinanceTracker.Views
                 int selectedIndex = lstBxCategories.SelectedIndex;
                 lstBxCategories.Items[selectedIndex] = selectedCategory;
 
+                // Update the item in the parentForm dropdown
+
             }
             else
             {
@@ -115,6 +120,8 @@ namespace CPTCProjectFinanceTracker.Views
 
                 // Add the category to the listbox
                 addCategoryToListBox(category);
+
+                // Add Category to parent form dropdown
             }
 
             resetForm();
