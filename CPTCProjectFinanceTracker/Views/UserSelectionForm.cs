@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CPTCProjectFinanceTracker.Views;
-
 public partial class UserSelectionForm : Form
 {
     private readonly UserController _controller;
+    // have to ask Joe about this
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int SelectedUserId { get; private set; }
     public UserSelectionForm()
     {
