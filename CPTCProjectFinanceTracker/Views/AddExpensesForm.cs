@@ -46,7 +46,7 @@ namespace CPTCProjectFinanceTracker
                     TransactionAmount = decimal.Parse(txtbxExpenseAmount.Text),
                     TransactionType = "Expense",
                     TransactionDescription = txtbxExpenseDescription.Text,
-                    TransactionDate = DateOnly.FromDateTime(DateTime.Now)
+                    TransactionDate = DateOnly.FromDateTime(dtpExpenseDate.Value)
                 };
 
                 // Let controller handle the transaction
@@ -54,6 +54,7 @@ namespace CPTCProjectFinanceTracker
                 ResetExpenseForm();
                 Confirm();
                 //_homeScreen.LoadAccountBalance();
+                _homeScreen.LoadRecentTransactions();
             }
             catch (Exception ex)
             {

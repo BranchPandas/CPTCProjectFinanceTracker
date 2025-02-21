@@ -8,8 +8,12 @@ public partial class HomeScreen : Form
 {
     private readonly TransactionController _controller;
     private readonly UserController _userController;
+
+    // Add this to the InitializeComponent method after the grpBxTransactions initialization:
+
     private readonly int _userId;
     private Users? _user;
+    private DataGridView dgvRecentTransactions;
 
     public HomeScreen(int userId)
     {
@@ -19,6 +23,7 @@ public partial class HomeScreen : Form
         _userId = userId;
         LoadUserData();
         TempLoadAccountBalance();
+        LoadRecentTransactions();
     }
 
     private void LoadUserData()
@@ -71,5 +76,52 @@ public partial class HomeScreen : Form
     {
         AddIncomeForm addIncomeForm = new AddIncomeForm(this);
         addIncomeForm.Show();
+    }
+    public void LoadRecentTransactions()
+    {
+        try
+        {
+            // Temporary using account ID 1 - you should replace this with the actual account ID
+            int tempAccount = 1;
+            var transactions = _controller.GetRecentTransactions(tempAccount);
+
+            dgvRecentTransactions.AutoGenerateColumns = false;
+            dgvRecentTransactions.Columns.Clear();
+
+            // Add columns
+            dgvRecentTransactions.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Date",
+                DataPropertyName = "TransactionDate",
+                HeaderText = "Date"
+            });
+            dgvRecentTransactions.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Description",
+                DataPropertyName = "TransactionDescription",
+                HeaderText = "Description"
+            });
+            dgvRecentTransactions.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Type",
+                DataPropertyName = "TransactionType",
+                HeaderText = "Type"
+            });
+            dgvRecentTransactions.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Amount",
+                DataPropertyName = "TransactionAmount",
+                HeaderText = "Amount",
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "C" }
+            });
+
+            dgvRecentTransactions.DataSource = transactions;
+            dgvRecentTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error loading transactions: {ex.Message}", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

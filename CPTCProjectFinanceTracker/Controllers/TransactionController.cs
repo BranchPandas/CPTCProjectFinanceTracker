@@ -47,4 +47,19 @@ public class TransactionController
 
         return incomes - expenses;
     }
+
+    /// <summary>
+    /// Gets a list of recent transactions ordered by date
+    /// </summary>
+    /// <param name="accountId">The account ID to get transactions for</param>
+    /// <param name="count">Number of recent transactions to retrieve</param>
+    /// <returns>List of recent transactions</returns>
+    public List<Transactions> GetRecentTransactions(int accountId, int count = 10)
+    {
+        return _context.Transactions
+            .Where(t => t.AccountId == accountId)
+            .OrderByDescending(t => t.TransactionDate)
+            .Take(count)
+            .ToList();
+    }
 }

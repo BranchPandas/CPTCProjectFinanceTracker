@@ -39,7 +39,7 @@ public partial class AddIncomeForm : Form
                 TransactionAmount = decimal.Parse(txtbxIncomeAmount.Text),
                 TransactionType = "Income",
                 TransactionDescription = txtbxIncomeDescription.Text,
-                TransactionDate = DateOnly.FromDateTime(DateTime.Now)
+                TransactionDate = DateOnly.FromDateTime(dtpIncomeDate.Value)
             };
 
             // Let controller handle the transaction
@@ -47,6 +47,7 @@ public partial class AddIncomeForm : Form
             ClearFields();
             Confirm();
             //_homeScreen.LoadAccountBalance();
+            _homeScreen.LoadRecentTransactions();
         }
         catch (Exception ex)
         {
