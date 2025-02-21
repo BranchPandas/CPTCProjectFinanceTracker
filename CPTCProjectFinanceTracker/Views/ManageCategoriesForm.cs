@@ -21,7 +21,14 @@ namespace CPTCProjectFinanceTracker.Views
         {
             this.categoryType = categoryType;
             InitializeComponent();
+            renderCategoryForm();
 
+
+
+        }
+
+        private void renderCategoryForm()
+        {
             // Populate the form title with correct name (Expense or Income)
             label1.Text = $"{categoryType} Categories";
             // Populate the listbox with categories from the database
@@ -72,8 +79,8 @@ namespace CPTCProjectFinanceTracker.Views
 
                 categoryController.Add(category);
 
-               
-            
+                // Add the category to the listbox
+                addCategoryToListBox(category.CategoryName);
             }
         }
     }
