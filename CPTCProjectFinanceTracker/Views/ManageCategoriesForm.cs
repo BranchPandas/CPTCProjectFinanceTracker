@@ -108,7 +108,7 @@ namespace CPTCProjectFinanceTracker.Views
                 int selectedIndex = lstBxCategories.SelectedIndex;
                 lstBxCategories.Items[selectedIndex] = selectedCategory;
 
-                // Update the item in the parentForm dropdown
+                if(parentForm is AddExpensesForm || parentForm is AddIncome                // Update the item in the parentForm dropdown
                 parentForm._categoryManager.UpdateCategoryItem(selectedCategory);
             }
             else
