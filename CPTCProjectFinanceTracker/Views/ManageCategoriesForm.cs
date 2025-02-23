@@ -73,7 +73,7 @@ namespace CPTCProjectFinanceTracker.Views
 
 
         /// <summary>
-        /// Handles the click event for the Upsert Category button.
+        /// Handles the click event for the Upsert Category button (Create or Update existing item).
         /// Validates the input, checks if a category is selected, and either updates the selected category
         /// or creates a new category. Refreshes the listbox and resets the form after the operation.
         /// </summary>
@@ -125,30 +125,52 @@ namespace CPTCProjectFinanceTracker.Views
 
 
                 // Create a new category
-                Categories category = new()
-                {
-                    CategoryType = TransactionType.Expense.ToString(),
-                    CategoryName = txtBxCategoryName.Text
-                };
+                Categories category;
 
-                categoryController.Add(category);
-
-                // Add the category to the listbox
-                addCategoryToListBox(category);
+          
 
                 // Add Category to parent form dropdown
                 if (parentForm is AddExpensesForm)
                 {
+                    category = new()
+                    {
+                        CategoryType = TransactionType.Expense.ToString(),
+                        CategoryName = txtBxCategoryName.Text
+                    };
+                    categoryController.Add(category);
+
+                    // Add the category to the listbox
+                    addCategoryToListBox(category);
+
+
                     AddExpensesForm addExpensesForm = (AddExpensesForm)parentForm;
                     // Update the item in the parentForm dropdown
                     addExpensesForm._categoryManager.AddCategoryItem(category);
                 }
                 if (parentForm is AddIncomeForm)
                 {
+                    category = new()
+                    {
+                        CategoryType = TransactionType.Income.ToString(),
+                        CategoryName = txtBxCategoryName.Text
+                    };
+
+                    categoryController.Add(category);
+
+                    // Add the category to the listbox
+                    addCategoryToListBox(category);
+
                     AddIncomeForm addIncomeForm = (AddIncomeForm)parentForm;
                     // Update the item in the parentForm dropdown
                     addIncomeForm._categoryManager.AddCategoryItem(category);
+
+
                 }
+
+
+
+
+          
 
             }
 

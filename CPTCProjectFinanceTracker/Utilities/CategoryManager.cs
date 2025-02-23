@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPTCProjectFinanceTracker.Utilites
+namespace CPTCProjectFinanceTracker.Utilities
 {
 
     /// <summary>
     /// This Utility Class offers the Income/Expense Forms common methods 
     /// for managing categories in the ComboBox.
+    /// This ComboBox is used to select the category of the transaction. 
+    /// but also can be updated at run time when the user adds, updates or deletes a category.
     /// </summary>
     public class CategoryManager
     {

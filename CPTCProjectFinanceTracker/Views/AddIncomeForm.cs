@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
-using CPTCProjectFinanceTracker.Utilites;
+using CPTCProjectFinanceTracker.Utilities;
 
 
 namespace CPTCProjectFinanceTracker;
@@ -29,6 +29,14 @@ public partial class AddIncomeForm : Form
         _controller = new TransactionController();
         _homeScreen = homeScreen;
         _categoryManager = new CategoryManager(cmboBxIncomeCategory);
+
+        // Add the Income Categories to the ComboBox    
+        CategoryController categoryController = new();
+        List<Categories> categories = categoryController.GetAll(TransactionType.Income);
+        foreach (Categories category in categories)
+        {
+            cmboBxIncomeCategory.Items.Add(category);
+        }
     }
 
     private void btnAddIncomeTransaction_Click(object sender, EventArgs e)

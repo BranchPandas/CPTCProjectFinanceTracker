@@ -1,7 +1,7 @@
 ﻿using CPTCProjectFinanceTracker;
 using CPTCProjectFinanceTracker.Controllers;
 using CPTCProjectFinanceTracker.Models;
-using CPTCProjectFinanceTracker.Utilites;
+using CPTCProjectFinanceTracker.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

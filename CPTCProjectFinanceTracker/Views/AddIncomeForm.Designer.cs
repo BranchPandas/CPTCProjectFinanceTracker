@@ -137,6 +137,7 @@
             // 
             // cmboBxIncomeCategory
             // 
+            cmboBxIncomeCategory.DisplayMember = "CategoryName";
             cmboBxIncomeCategory.FormattingEnabled = true;
             cmboBxIncomeCategory.Location = new Point(326, 185);
             cmboBxIncomeCategory.Name = "cmboBxIncomeCategory";
