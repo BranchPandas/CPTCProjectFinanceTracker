@@ -21,7 +21,7 @@ namespace CPTCProjectFinanceTracker.Views
     {
 
         private readonly TransactionType categoryType;
-        private AddExpensesForm parentForm;
+        private Form parentForm;
 
         /// <summary>
         /// Constructor for creating this form.
@@ -32,7 +32,7 @@ namespace CPTCProjectFinanceTracker.Views
         public FormManageCategories(TransactionType categoryType, Form parentForm)
         {
             this.categoryType = categoryType;
-            this.parentForm = (AddExpensesForm)parentForm;
+            this.parentForm = parentForm;
             InitializeComponent();
             renderCategoryForm();
         }
@@ -108,8 +108,17 @@ namespace CPTCProjectFinanceTracker.Views
                 int selectedIndex = lstBxCategories.SelectedIndex;
                 lstBxCategories.Items[selectedIndex] = selectedCategory;
 
-                if(parentForm is AddExpensesForm || parentForm is AddIncome                // Update the item in the parentForm dropdown
-                parentForm._categoryManager.UpdateCategoryItem(selectedCategory);
+                if (parentForm is AddExpensesForm) {
+                    AddExpensesForm addExpensesForm = (AddExpensesForm)parentForm;
+                    // Update the item in the parentForm dropdown
+                    addExpensesForm._categoryManager.UpdateCategoryItem(selectedCategory);
+                }
+                if (parentForm is AddIncomeForm)
+                {
+                    AddIncomeForm addIncomeForm = (AddIncomeForm)parentForm;
+                    // Update the item in the parentForm dropdown
+                    addIncomeForm._categoryManager.UpdateCategoryItem(selectedCategory);
+                }
             }
             else
             {
@@ -128,7 +137,19 @@ namespace CPTCProjectFinanceTracker.Views
                 addCategoryToListBox(category);
 
                 // Add Category to parent form dropdown
-                parentForm._categoryManager.AddCategoryItem(category);
+                if (parentForm is AddExpensesForm)
+                {
+                    AddExpensesForm addExpensesForm = (AddExpensesForm)parentForm;
+                    // Update the item in the parentForm dropdown
+                    addExpensesForm._categoryManager.AddCategoryItem(category);
+                }
+                if (parentForm is AddIncomeForm)
+                {
+                    AddIncomeForm addIncomeForm = (AddIncomeForm)parentForm;
+                    // Update the item in the parentForm dropdown
+                    addIncomeForm._categoryManager.AddCategoryItem(category);
+                }
+
             }
 
             resetForm();
@@ -184,7 +205,18 @@ namespace CPTCProjectFinanceTracker.Views
                 lstBxCategories.Items.Remove(category);
 
                 // delete item from parent from
-                parentForm._categoryManager.RemoveCategoryItem(category);
+                if (parentForm is AddExpensesForm)
+                {
+                    AddExpensesForm addExpensesForm = (AddExpensesForm)parentForm;
+                    // Update the item in the parentForm dropdown
+                    addExpensesForm._categoryManager.RemoveCategoryItem(category);
+                }
+                if (parentForm is AddIncomeForm)
+                {
+                    AddIncomeForm addIncomeForm = (AddIncomeForm)parentForm;
+                    // Update the item in the parentForm dropdown
+                    addIncomeForm._categoryManager.RemoveCategoryItem(category);
+                }
 
                 resetForm();
             }

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
+using CPTCProjectFinanceTracker.Utilites;
 
 
 namespace CPTCProjectFinanceTracker;
@@ -19,12 +20,15 @@ public partial class AddIncomeForm : Form
 {
     private readonly TransactionController _controller;
     private readonly HomeScreen _homeScreen;
+    public CategoryManager _categoryManager;
+
 
     public AddIncomeForm(HomeScreen homeScreen)
     {
         InitializeComponent();
         _controller = new TransactionController();
         _homeScreen = homeScreen;
+        _categoryManager = new CategoryManager(cmboBxIncomeCategory);
     }
 
     private void btnAddIncomeTransaction_Click(object sender, EventArgs e)

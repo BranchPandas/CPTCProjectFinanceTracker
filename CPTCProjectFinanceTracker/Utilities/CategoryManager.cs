@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace CPTCProjectFinanceTracker.Utilites
 {
+
+    /// <summary>
+    /// This Utility Class offers the Income/Expense Forms common methods 
+    /// for managing categories in the ComboBox.
+    /// </summary>
     public class CategoryManager
     {
         private ComboBox _comboBox;
