@@ -38,6 +38,7 @@
             label4 = new Label();
             label5 = new Label();
             cmboBxExpenseCategory = new ComboBox();
+            btnManageCategories = new Button();
             SuspendLayout();
             // 
             // txtbxExpenseDescription
@@ -129,11 +130,22 @@
             // 
             // cmboBxExpenseCategory
             // 
+            cmboBxExpenseCategory.DisplayMember = "CategoryName";
             cmboBxExpenseCategory.FormattingEnabled = true;
             cmboBxExpenseCategory.Location = new Point(384, 116);
             cmboBxExpenseCategory.Name = "cmboBxExpenseCategory";
             cmboBxExpenseCategory.Size = new Size(302, 49);
             cmboBxExpenseCategory.TabIndex = 1;
+            // 
+            // btnManageCategories
+            // 
+            btnManageCategories.Location = new Point(718, 116);
+            btnManageCategories.Name = "btnManageCategories";
+            btnManageCategories.Size = new Size(339, 49);
+            btnManageCategories.TabIndex = 10;
+            btnManageCategories.Text = "⚙ Manage Categories ";
+            btnManageCategories.UseVisualStyleBackColor = true;
+            btnManageCategories.Click += btnManageCategories_Click;
             // 
             // AddExpensesForm
             // 
@@ -141,6 +153,7 @@
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1311, 635);
+            Controls.Add(btnManageCategories);
             Controls.Add(cmboBxExpenseCategory);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -168,5 +181,6 @@
         private Label label4;
         private Label label5;
         private ComboBox cmboBxExpenseCategory;
+        private Button btnManageCategories;
     }
 }
