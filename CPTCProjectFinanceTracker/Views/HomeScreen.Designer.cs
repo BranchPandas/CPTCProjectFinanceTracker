@@ -95,7 +95,7 @@
             grpBxTransactions.Size = new Size(420, 204);
             grpBxTransactions.TabIndex = 7;
             grpBxTransactions.TabStop = false;
-            grpBxTransactions.Text = "Recent Transactions";
+            grpBxTransactions.Text = "Recent Transaction";
             // 
             // label2
             // 

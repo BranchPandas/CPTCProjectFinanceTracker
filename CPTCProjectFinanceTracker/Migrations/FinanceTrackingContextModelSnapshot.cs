@@ -22,7 +22,7 @@ namespace CPTCProjectFinanceTracker.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Accounts", b =>
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Account", b =>
                 {
                     b.Property<int>("AccountId")
                         .ValueGeneratedOnAdd()
@@ -42,10 +42,10 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("AccountId");
 
-                    b.ToTable("Accounts");
+                    b.ToTable("Account");
                 });
 
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Reminders", b =>
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Reminder", b =>
                 {
                     b.Property<int>("ReminderId")
                         .ValueGeneratedOnAdd()
@@ -65,10 +65,10 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("ReminderId");
 
-                    b.ToTable("Reminders");
+                    b.ToTable("Reminder");
                 });
 
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Transactions", b =>
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Transaction", b =>
                 {
                     b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
@@ -97,10 +97,10 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("TransactionId");
 
-                    b.ToTable("Transactions");
+                    b.ToTable("Transaction");
                 });
 
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Users", b =>
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.User", b =>
                 {
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
@@ -125,7 +125,7 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("UserID");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 #pragma warning restore 612, 618
         }

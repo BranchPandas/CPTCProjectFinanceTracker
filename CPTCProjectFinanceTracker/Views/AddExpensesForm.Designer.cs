@@ -152,7 +152,7 @@
             Controls.Add(txtbxExpenseAmount);
             Controls.Add(txtbxExpenseDescription);
             Name = "AddExpensesForm";
-            Text = "Add Expense Transactions";
+            Text = "Add Expense Transaction";
             ResumeLayout(false);
             PerformLayout();
         }

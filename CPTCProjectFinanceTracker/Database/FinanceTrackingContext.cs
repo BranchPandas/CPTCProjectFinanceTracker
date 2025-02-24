@@ -30,8 +30,8 @@ public class FinanceTrackingContext : DbContext
     /// These are the tables that will be created in the database 
     /// based on their respective model.
     /// </summary>
-    public DbSet<Transactions> Transactions { get; set; }
-    public DbSet<Accounts> Accounts { get; set; }
-    public DbSet<Users> Users { get; set; }
-    public DbSet<Reminders> Reminders { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
+    public DbSet<Account> Accounts { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Reminder> Reminders { get; set; }
 }

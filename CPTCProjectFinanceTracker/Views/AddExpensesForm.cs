@@ -38,7 +38,7 @@ namespace CPTCProjectFinanceTracker
         {
             try
             {
-                var transaction = new Transactions
+                var transaction = new Transaction
                 {
                     // TransactionId = automatically generated Id from database
                     AccountId = 1, // TODO: Get account ID from user selection

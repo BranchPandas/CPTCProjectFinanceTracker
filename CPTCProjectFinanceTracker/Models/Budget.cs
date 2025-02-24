@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace CPTCProjectFinanceTracker.Models
 {
     /// <summary>
-    /// The Budgets class represents a user's budget in the finance tracker application.
+    /// The Budget class represents a user's budget in the finance tracker application.
     /// </summary>
-    public class Budgets
+    public class Budget
     {
         /// <summary>
         /// Primary key for the budgets table
