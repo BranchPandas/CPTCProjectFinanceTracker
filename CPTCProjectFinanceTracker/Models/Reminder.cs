@@ -20,12 +20,6 @@ public class Reminder
     public int ReminderId { get; set; }
 
     /// <summary>
-    /// Foreign key to the users table
-    /// </summary>
-    [Required]
-    public int UserId { get; set; }
-
-    /// <summary>
     /// Date of the reminder
     /// </summary>
     public DateTime ReminderDate { get; set; }
@@ -33,6 +27,16 @@ public class Reminder
     /// <summary>
     /// Description of the reminder
     /// </summary>
-    public string ReminderDescription { get; set; }
+    public required string ReminderDescription { get; set; }
+
+    /// <summary>
+    /// Get UserId from the User table
+    /// </summary>
+    public required virtual User User { get; set; }
+
+    /// <summary>
+    /// Link ReminderId to the ReminderTriggers table
+    /// </summary>
+    public required virtual ICollection<ReminderTrigger> ReminderTriggers { get; set; }
 
 }

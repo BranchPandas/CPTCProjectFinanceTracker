@@ -19,12 +19,12 @@ namespace CPTCProjectFinanceTracker.Models
         /// <summary>
         /// The type of the ReminderTrigger
         /// </summary>
-        public string Type { get; set; }
+        public required string Type { get; set; }
 
         /// <summary>
-        /// The foreign key for the Reminder class
+        /// Get ReminderId from Reminder
         /// </summary>
-        public int ReminderId { get; set; }
+        public required virtual Reminder Reminder { get; set; }
 
     }
 }

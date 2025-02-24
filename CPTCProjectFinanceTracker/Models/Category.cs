@@ -22,12 +22,22 @@ namespace CPTCProjectFinanceTracker.Models
         /// The name of the Category
         /// </summary>
         [Required]
-        public string CategoryName { get; set; }
+        public required string CategoryName { get; set; }
 
         /// <summary>
         /// The type of the Category. Either expense or income.
         /// </summary>
         [Required]
-        public string CategoryType { get; set; }
+        public required string CategoryType { get; set; }
+
+        /// <summary>
+        /// Link CateroryId to the Budget table
+        /// </summary>
+        public required virtual ICollection<Budget> Budgets { get; set; }
+
+        /// <summary>
+        /// Link CategoryId to the Transaction table
+        /// </summary>
+        public required virtual ICollection<Transaction> Transactions { get; set; }
     }
 }
