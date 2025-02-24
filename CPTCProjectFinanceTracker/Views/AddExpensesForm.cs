@@ -57,13 +57,18 @@ namespace CPTCProjectFinanceTracker
                 {
                     // TransactionId = automatically generated Id from database
                     AccountId = 1, // TODO: Get account ID from user selection
-                    CategoryId = 1, // TODO: Get category ID from user selection
+                    CategoryId = ((Categories)cmboBxExpenseCategory.SelectedItem).CategoryId,
                     TransactionAmount = decimal.Parse(txtbxExpenseAmount.Text),
                     TransactionType = "Expense",
                     TransactionDescription = txtbxExpenseDescription.Text,
                     TransactionDate = DateOnly.FromDateTime(dtpExpenseDate.Value)
                 };
-
+                // Should be moved to the validation folder when created
+                if (cmboBxExpenseCategory.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Let controller handle the transaction
                 _controller.SaveTransaction(transaction);
                 ResetExpenseForm();

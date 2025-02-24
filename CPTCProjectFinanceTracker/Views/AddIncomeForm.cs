@@ -47,13 +47,18 @@ public partial class AddIncomeForm : Form
             {
                 TransactionId = 0, // TODO: Get transaction ID from database
                 AccountId = 1, // TODO: Get account ID from user selection
-                CategoryId = 1, // TODO: Get category ID from user selection
+                CategoryId = ((Categories)cmboBxIncomeCategory.SelectedItem).CategoryId,
                 TransactionAmount = decimal.Parse(txtbxIncomeAmount.Text),
                 TransactionType = "Income",
                 TransactionDescription = txtbxIncomeDescription.Text,
                 TransactionDate = DateOnly.FromDateTime(dtpIncomeDate.Value)
             };
-
+            // Should be moved to the validation folder when created
+            if (cmboBxIncomeCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Let controller handle the transaction
             _controller.SaveTransaction(transaction);
             ClearFields();
