@@ -57,7 +57,7 @@ namespace CPTCProjectFinanceTracker
                 {
                     // TransactionId = automatically generated Id from database
                     AccountId = 1, // TODO: Get account ID from user selection
-                    CategoryId = 1, // TODO: Get category ID from user selection
+                    CategoryId = ((Categories)cmboBxExpenseCategory.SelectedItem!).CategoryId,
                     TransactionAmount = decimal.Parse(txtbxExpenseAmount.Text),
                     TransactionType = "Expense",
                     TransactionDescription = txtbxExpenseDescription.Text,

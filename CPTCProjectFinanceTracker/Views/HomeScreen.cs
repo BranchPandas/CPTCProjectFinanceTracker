@@ -114,6 +114,12 @@ public partial class HomeScreen : Form
                 HeaderText = "Amount",
                 DefaultCellStyle = new DataGridViewCellStyle { Format = "C" }
             });
+            dgvRecentTransactions.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Category",
+                DataPropertyName = "CategoryId",
+                HeaderText = "Category",
+            });
 
             dgvRecentTransactions.DataSource = transactions;
             dgvRecentTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

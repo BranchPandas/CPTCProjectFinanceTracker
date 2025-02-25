@@ -47,7 +47,7 @@ public partial class AddIncomeForm : Form
             {
                 TransactionId = 0, // TODO: Get transaction ID from database
                 AccountId = 1, // TODO: Get account ID from user selection
-                CategoryId = 1, // TODO: Get category ID from user selection
+                CategoryId = ((Categories)cmboBxIncomeCategory.SelectedItem!).CategoryId, // TODO: Get category ID from user selection
                 TransactionAmount = decimal.Parse(txtbxIncomeAmount.Text),
                 TransactionType = "Income",
                 TransactionDescription = txtbxIncomeDescription.Text,
