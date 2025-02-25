@@ -88,6 +88,10 @@ public partial class HomeScreen : Form
             var transactions = _transactionController.GetRecentTransactions(tempAccount);
             var categories = _categoryController.GetAll();
 
+
+            // My first ever LINQ query
+            // This is an example of an "Outer Join" b/c DefaultIfEmpty + "N/a" fallback value
+            // To Execute this LINQ query, you run sourceData.ToList();
             var sourceData = from transaction in transactions
                              join category in categories
                              on transaction.CategoryId equals category.CategoryId
@@ -139,7 +143,7 @@ public partial class HomeScreen : Form
                 HeaderText = "Category",
             });
 
-
+            
             dgvRecentTransactions.DataSource = sourceData.ToList();
             dgvRecentTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
