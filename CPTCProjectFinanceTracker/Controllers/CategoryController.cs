@@ -27,25 +27,25 @@ namespace CPTCProjectFinanceTracker.Controllers
         // CRUD functionality for Categories
         // The CategoryType is based on which for is open (See TransactionType enum)
 
-        public void Add(Categories category) 
+        public void Add(Category category) 
         {
             _context.Categories.Add(category);
             _context.SaveChanges();
         }
 
-        public void Update(Categories category)
+        public void Update(Category category)
         {
             _context.Categories.Update(category);
             _context.SaveChanges();
         }
 
-        public void Delete(Categories category)
+        public void Delete(Category category)
         {
             _context.Categories.Remove(category);
             _context.SaveChanges();
         }
 
-        public List<Categories> GetAll(TransactionType transactionType)
+        public List<Category> GetAll(TransactionType transactionType)
         {
             return _context.Categories.Where(c => c.CategoryType == transactionType.ToString()).ToList();
         }

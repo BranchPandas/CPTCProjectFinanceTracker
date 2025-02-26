@@ -53,7 +53,7 @@ public class UserController
     {
         throw new NotImplementedException();
     }
-    public Users? GetUserById(int userId)
+    public User? GetUserById(int userId)
     {
         return _context.Users.FirstOrDefault(u => u.UserID == userId);
     }
