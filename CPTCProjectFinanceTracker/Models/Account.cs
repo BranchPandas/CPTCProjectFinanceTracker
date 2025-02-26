@@ -42,3 +42,4 @@ public class Account
     public virtual required ICollection<Transaction> Transactions { get; set; }
 
 }
+

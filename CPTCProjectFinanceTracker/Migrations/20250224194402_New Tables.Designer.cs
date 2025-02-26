@@ -4,6 +4,7 @@ using CPTCProjectFinanceTracker.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CPTCProjectFinanceTracker.Migrations
 {
     [DbContext(typeof(FinanceTrackingContext))]
-    partial class FinanceTrackingContextModelSnapshot : ModelSnapshot
+    [Migration("20250224194402_New Tables")]
+    partial class NewTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace CPTCProjectFinanceTracker.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Account", b =>
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Accounts", b =>
                 {
                     b.Property<int>("AccountId")
                         .ValueGeneratedOnAdd()
@@ -42,7 +45,7 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("AccountId");
 
-                    b.ToTable("Account");
+                    b.ToTable("Accounts");
                 });
 
             modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Categories", b =>
@@ -65,8 +68,8 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.ToTable("Categories");
                 });
-           
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Reminder", b =>
+
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Reminders", b =>
                 {
                     b.Property<int>("ReminderId")
                         .ValueGeneratedOnAdd()
@@ -86,10 +89,10 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("ReminderId");
 
-                    b.ToTable("Reminder");
+                    b.ToTable("Reminders");
                 });
 
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Transaction", b =>
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Transactions", b =>
                 {
                     b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
@@ -119,10 +122,10 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("TransactionId");
 
-                    b.ToTable("Transaction");
+                    b.ToTable("Transactions");
                 });
 
-            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.User", b =>
+            modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Users", b =>
                 {
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
@@ -147,7 +150,7 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.HasKey("UserID");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

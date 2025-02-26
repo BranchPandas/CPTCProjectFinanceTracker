@@ -55,3 +55,10 @@ public class Transaction
 
 
 }
+
+// This Enum helps to prevent misspellings of strings
+public enum TransactionType
+{
+    Expense,
+    Income
+}

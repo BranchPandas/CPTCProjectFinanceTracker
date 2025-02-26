@@ -33,7 +33,10 @@
             btnAddExpense = new Button();
             txtCurrentBalance = new TextBox();
             grpBxTransactions = new GroupBox();
+            dgvRecentTransactions = new DataGridView();
             label2 = new Label();
+            grpBxTransactions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRecentTransactions).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -86,16 +89,27 @@
             // 
             // grpBxTransactions
             // 
+            grpBxTransactions.Controls.Add(dgvRecentTransactions);
             grpBxTransactions.FlatStyle = FlatStyle.Popup;
             grpBxTransactions.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grpBxTransactions.Location = new Point(29, 206);
             grpBxTransactions.Margin = new Padding(4, 3, 4, 3);
             grpBxTransactions.Name = "grpBxTransactions";
             grpBxTransactions.Padding = new Padding(4, 3, 4, 3);
-            grpBxTransactions.Size = new Size(420, 204);
+            grpBxTransactions.Size = new Size(691, 204);
             grpBxTransactions.TabIndex = 7;
             grpBxTransactions.TabStop = false;
             grpBxTransactions.Text = "Recent Transaction";
+            // 
+            // dgvRecentTransactions
+            // 
+            dgvRecentTransactions.ColumnHeadersHeight = 34;
+            dgvRecentTransactions.Dock = DockStyle.Fill;
+            dgvRecentTransactions.Location = new Point(4, 30);
+            dgvRecentTransactions.Name = "dgvRecentTransactions";
+            dgvRecentTransactions.RowHeadersWidth = 62;
+            dgvRecentTransactions.Size = new Size(683, 171);
+            dgvRecentTransactions.TabIndex = 0;
             // 
             // label2
             // 
@@ -122,6 +136,8 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "HomeScreen";
             Text = "Finance Tracker";
+            grpBxTransactions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvRecentTransactions).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
