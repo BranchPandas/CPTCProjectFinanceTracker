@@ -50,9 +50,9 @@ namespace CPTCProjectFinanceTracker.Views
 
             // Fetch the categories from the database
             CategoryController categoryController = new();
-            List<Categories> categories = categoryController.GetAll(categoryType);
+            List<Category> categories = categoryController.GetAll(categoryType);
             // populate the listbox with the categories
-            foreach (Categories category in categories)
+            foreach (Category category in categories)
             {
                 addCategoryToListBox(category);
             }
@@ -64,7 +64,7 @@ namespace CPTCProjectFinanceTracker.Views
         /// the listbox via the DisplayMember property.
         /// </summary>
         /// <param name="item">The category item to be added to the listbox.</param>
-        private void addCategoryToListBox(Categories item)
+        private void addCategoryToListBox(Category item)
         {
             // Important note: The ListBox has DisplayMember set to CategoryName
             lstBxCategories.Items.Add(item);
@@ -94,7 +94,7 @@ namespace CPTCProjectFinanceTracker.Views
             // If it is selected, get the category, update the name, and save it.
             // If it is not selected, create a new category, set the name, and save it.
 
-            Categories? selectedCategory = (Categories?)lstBxCategories.SelectedItem;
+            Category? selectedCategory = (Category?)lstBxCategories.SelectedItem;
             CategoryController categoryController = new();
 
             if (selectedCategory != null)
@@ -125,7 +125,7 @@ namespace CPTCProjectFinanceTracker.Views
 
 
                 // Create a new category
-                Categories category;
+                Category category;
 
           
 
@@ -188,7 +188,7 @@ namespace CPTCProjectFinanceTracker.Views
         {
 
             // Get the selected category
-            Categories? category = (Categories?)lstBxCategories.SelectedItem;
+            Category? category = (Category?)lstBxCategories.SelectedItem;
 
             if (category != null)
             {
@@ -216,7 +216,7 @@ namespace CPTCProjectFinanceTracker.Views
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
             // Get the selected item
-            Categories? category = (Categories?)lstBxCategories.SelectedItem;
+            Category? category = (Category?)lstBxCategories.SelectedItem;
 
             if (category != null)
             {

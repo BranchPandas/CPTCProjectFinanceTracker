@@ -65,7 +65,7 @@ namespace CPTCProjectFinanceTracker.Migrations
 
                     b.ToTable("Categories");
                 });
-           
+
             modelBuilder.Entity("CPTCProjectFinanceTracker.Models.Reminder", b =>
                 {
                     b.Property<int>("ReminderId")

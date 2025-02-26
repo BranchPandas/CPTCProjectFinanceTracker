@@ -30,8 +30,8 @@ namespace CPTCProjectFinanceTracker
 
             // Add the Expense Categories to the ComboBox
             CategoryController categoryController = new();
-            List<Categories> categories = categoryController.GetAll(TransactionType.Expense);
-            foreach (Categories category in categories)
+            List<Category> categories = categoryController.GetAll(TransactionType.Expense);
+            foreach (Category category in categories)
             {
                 cmboBxExpenseCategory.Items.Add(category);
             }
@@ -57,7 +57,7 @@ namespace CPTCProjectFinanceTracker
                 {
                     // TransactionId = automatically generated Id from database
                     AccountId = 1, // TODO: Get account ID from user selection
-                    CategoryId = ((Categories)cmboBxExpenseCategory.SelectedItem).CategoryId,
+                    CategoryId = ((Category)cmboBxExpenseCategory.SelectedItem).CategoryId,
                     TransactionAmount = decimal.Parse(txtbxExpenseAmount.Text),
                     TransactionType = "Expense",
                     TransactionDescription = txtbxExpenseDescription.Text,
