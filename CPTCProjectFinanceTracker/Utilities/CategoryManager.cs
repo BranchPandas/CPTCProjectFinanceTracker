@@ -27,11 +27,11 @@ namespace CPTCProjectFinanceTracker.Utilities
         /// Removes a category item from the ComboBox.
         /// </summary>
         /// <param name="category">The category to be removed.</param>
-        public void RemoveCategoryItem(Categories category)
+        public void RemoveCategoryItem(Category category)
         {
             // Find the category by its ID
-            Categories? itemToRemove = _comboBox.Items
-                .Cast<Categories>()
+            Category? itemToRemove = _comboBox.Items
+                .Cast<Category>()
                 .FirstOrDefault(c => c.CategoryId == category.CategoryId);
 
             // Remove the category if found
@@ -46,11 +46,11 @@ namespace CPTCProjectFinanceTracker.Utilities
         /// Finds the category by its ID and updates its details.
         /// </summary>
         /// <param name="category">The category to be updated.</param>
-        public void UpdateCategoryItem(Categories category)
+        public void UpdateCategoryItem(Category category)
         {
             // Get Category from the list
-            Categories? itemToUpdate = _comboBox.Items
-                .Cast<Categories>()
+            Category? itemToUpdate = _comboBox.Items
+                .Cast<Category>()
                 .FirstOrDefault(c => c.CategoryId == category.CategoryId);
 
             if (itemToUpdate != null)
@@ -67,9 +67,9 @@ namespace CPTCProjectFinanceTracker.Utilities
         /// Checks if the category already exists in the ComboBox before adding.
         /// </summary>
         /// <param name="category">The category to be added.</param>
-        public void AddCategoryItem(Categories category)
+        public void AddCategoryItem(Category category)
         {
-            if (!_comboBox.Items.Cast<Categories>().Any(c => c.CategoryId == category.CategoryId))
+            if (!_comboBox.Items.Cast<Category>().Any(c => c.CategoryId == category.CategoryId))
             {
                 _comboBox.Items.Add(category);
             }
