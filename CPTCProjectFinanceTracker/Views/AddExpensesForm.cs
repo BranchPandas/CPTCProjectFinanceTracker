@@ -1,6 +1,7 @@
 ﻿using CPTCProjectFinanceTracker;
 using CPTCProjectFinanceTracker.Controllers;
 using CPTCProjectFinanceTracker.Models;
+using CPTCProjectFinanceTracker.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,13 +19,27 @@ namespace CPTCProjectFinanceTracker
 
         private readonly TransactionController _controller;
         private readonly HomeScreen _homeScreen;
+        public CategoryManager _categoryManager;
 
         public AddExpensesForm(HomeScreen homeScreen)
         {
             InitializeComponent();
             _controller = new TransactionController();
             _homeScreen = homeScreen;
+            _categoryManager = new CategoryManager(cmboBxExpenseCategory);
+
+            // Add the Expense Categories to the ComboBox
+            CategoryController categoryController = new();
+            List<Categories> categories = categoryController.GetAll(TransactionType.Expense);
+            foreach (Categories category in categories)
+            {
+                cmboBxExpenseCategory.Items.Add(category);
+            }
         }
+
+
+      
+
 
         /// <summary>
         /// Handles the click event for the Add Expense Transaction button.
@@ -42,18 +57,24 @@ namespace CPTCProjectFinanceTracker
                 {
                     // TransactionId = automatically generated Id from database
                     AccountId = 1, // TODO: Get account ID from user selection
-                    CategoryId = 1, // TODO: Get category ID from user selection
+                    CategoryId = ((Categories)cmboBxExpenseCategory.SelectedItem).CategoryId,
                     TransactionAmount = decimal.Parse(txtbxExpenseAmount.Text),
                     TransactionType = "Expense",
                     TransactionDescription = txtbxExpenseDescription.Text,
-                    TransactionDate = DateOnly.FromDateTime(DateTime.Now)
+                    TransactionDate = DateOnly.FromDateTime(dtpExpenseDate.Value)
                 };
-
+                // Should be moved to the validation folder when created
+                if (cmboBxExpenseCategory.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Let controller handle the transaction
                 _controller.SaveTransaction(transaction);
                 ResetExpenseForm();
                 Confirm();
-                _homeScreen.LoadAccountBalance();
+                //_homeScreen.LoadAccountBalance();
+                _homeScreen.LoadRecentTransactions();
             }
             catch (Exception ex)
             {
@@ -74,6 +95,13 @@ namespace CPTCProjectFinanceTracker
         private void Confirm()
         {
             MessageBox.Show("Expense added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnManageCategories_Click(object sender, EventArgs e)
+        {
+            // Open the ManageCategoriesForm
+            Views.FormManageCategories manageCategoriesForm = new Views.FormManageCategories(TransactionType.Expense, this);
+            manageCategoriesForm.Show();
         }
     }
 }

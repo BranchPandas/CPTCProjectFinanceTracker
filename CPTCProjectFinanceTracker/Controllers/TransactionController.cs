@@ -15,7 +15,7 @@ public class TransactionController
     /// Field to hold the database context
     /// </summary>
     private readonly FinanceTrackingContext _context;
-    
+
     /// <summary>
     /// Constructor to initialize the database context 
     /// </summary>
@@ -35,17 +35,31 @@ public class TransactionController
         _context.SaveChanges();
     }
 
-    public decimal GetAccountBalance(int accountId)
+    public decimal GetAccountBalance(int tempAccount)
     {
         var incomes = _context.Transactions
-            .Where(t => t.AccountId == accountId && t.TransactionType == "Income")
+            .Where(t => t.AccountId == tempAccount && t.TransactionType == "Income")
             .Sum(t => t.TransactionAmount);
 
         var expenses = _context.Transactions
-            .Where(t => t.AccountId == accountId && t.TransactionType == "Expense")
+            .Where(t => t.AccountId == tempAccount && t.TransactionType == "Expense")
             .Sum(t => t.TransactionAmount);
 
         return incomes - expenses;
     }
 
+    /// <summary>
+    /// Gets a list of recent transactions ordered by date
+    /// </summary>
+    /// <param name="accountId">The account ID to get transactions for</param>
+    /// <param name="count">Number of recent transactions to retrieve</param>
+    /// <returns>List of recent transactions</returns>
+    public List<Transactions> GetRecentTransactions(int accountId, int count = 10)
+    {
+        return _context.Transactions
+            .Where(t => t.AccountId == accountId)
+            .OrderByDescending(t => t.TransactionDate)
+            .Take(count)
+            .ToList();
+    }
 }

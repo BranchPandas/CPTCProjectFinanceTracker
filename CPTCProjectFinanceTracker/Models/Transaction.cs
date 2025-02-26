@@ -55,3 +55,10 @@ public class Transaction
     public int CategoryId { get; set; }
 
 }
+
+// This Enum helps to prevent misspellings of strings
+public enum TransactionType
+{
+    Expense,
+    Income
+}
