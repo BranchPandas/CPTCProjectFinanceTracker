@@ -32,8 +32,8 @@ public partial class AddIncomeForm : Form
 
         // Add the Income Categories to the ComboBox    
         CategoryController categoryController = new();
-        List<Categories> categories = categoryController.GetAll(TransactionType.Income);
-        foreach (Categories category in categories)
+        List<Category> categories = categoryController.GetAll(TransactionType.Income);
+        foreach (Category category in categories)
         {
             cmboBxIncomeCategory.Items.Add(category);
         }
@@ -47,7 +47,7 @@ public partial class AddIncomeForm : Form
             {
                 TransactionId = 0, // TODO: Get transaction ID from database
                 AccountId = 1, // TODO: Get account ID from user selection
-                CategoryId = ((Categories)cmboBxIncomeCategory.SelectedItem).CategoryId,
+                CategoryId = ((Category)cmboBxIncomeCategory.SelectedItem).CategoryId,
                 TransactionAmount = decimal.Parse(txtbxIncomeAmount.Text),
                 TransactionType = "Income",
                 TransactionDescription = txtbxIncomeDescription.Text,
