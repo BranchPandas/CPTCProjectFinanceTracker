@@ -57,4 +57,23 @@ public class User
     /// Link UserId to Category
     /// </summary>
     public virtual required ICollection<Reminder> Reminders { get; set; }
+
+}
+
+/// <summary>
+/// The UserDisplayDTO record represents a Data Transfer Object for displaying user information.
+/// the record keyword is used to define an immutable reference type.
+/// For more information, see https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/records
+/// </summary>
+public record UserDisplayDTO
+{
+    /// <summary>
+    /// The unique identifier for the user.
+    /// </summary>
+    public int UserId { get; set; }
+
+    /// <summary>
+    /// The display text for the user.
+    /// </summary>
+    public string DisplayText { get; set; }
 }
