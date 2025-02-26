@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace CPTCProjectFinanceTracker.Models;
 
 /// <summary>
-/// The Users class represents a user in the finance tracker application.
+/// The User class represents a user in the finance tracker application.
 /// </summary>
-public class Users
+public class User
 {
     /// <summary>
     /// The unique identifier for each User

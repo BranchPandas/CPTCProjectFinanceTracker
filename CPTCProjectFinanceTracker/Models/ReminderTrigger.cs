@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 namespace CPTCProjectFinanceTracker.Models
 {
     /// <summary>
-    /// The ReminderTriggers class represents a trigger for a reminder in the finance tracker application.
+    /// The ReminderTrigger class represents a trigger for a reminder in the finance tracker application.
     /// </summary>
-    public class ReminderTriggers
+    public class ReminderTrigger
     {
         /// <summary>
-        /// The unique identifier for each ReminderTriggers
+        /// The unique identifier for each ReminderTrigger
         /// </summary>
         public int ReminderTriggerId { get; set; }
 
         /// <summary>
-        /// The type of the ReminderTriggers
+        /// The type of the ReminderTrigger
         /// </summary>
         public string Type { get; set; }
 
         /// <summary>
-        /// The foreign key for the Reminders class
+        /// The foreign key for the Reminder class
         /// </summary>
         public int ReminderId { get; set; }
 

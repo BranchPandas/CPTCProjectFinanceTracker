@@ -43,7 +43,7 @@ public partial class AddIncomeForm : Form
     {
         try
         {
-            var transaction = new Transactions
+            var transaction = new Models.Transaction
             {
                 TransactionId = 0, // TODO: Get transaction ID from database
                 AccountId = 1, // TODO: Get account ID from user selection

@@ -29,7 +29,7 @@ public class TransactionController
     /// and saves it to the database
     /// </summary>
     /// <param name="transaction"></param>
-    public void SaveTransaction(Transactions transaction)
+    public void SaveTransaction(Models.Transaction transaction)
     {
         _context.Transactions.Add(transaction);
         _context.SaveChanges();

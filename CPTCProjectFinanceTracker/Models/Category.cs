@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace CPTCProjectFinanceTracker.Models
 {
     /// <summary>
-    /// The Categories class represents a category in the finance tracker application.
+    /// The Category class represents a category in the finance tracker application.
     /// </summary>
-    public class Categories
+    public class Category
     {
         /// <summary>
         /// The unique identifier for each Category
