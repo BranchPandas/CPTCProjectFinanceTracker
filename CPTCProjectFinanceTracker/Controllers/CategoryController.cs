@@ -49,6 +49,10 @@ namespace CPTCProjectFinanceTracker.Controllers
         {
             return _context.Categories.Where(c => c.CategoryType == transactionType.ToString()).ToList();
         }
+        public List<Category> GetAll()
+        {
+            return _context.Categories.ToList();
+        }
     }
 }
 

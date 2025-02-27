@@ -6,8 +6,9 @@ namespace CPTCProjectFinanceTracker;
 
 public partial class HomeScreen : Form
 {
-    private readonly TransactionController _controller;
+    private readonly TransactionController _transactionController;
     private readonly UserController _userController;
+    private readonly CategoryController _categoryController;
 
     // Add this to the InitializeComponent method after the grpBxTransactions initialization:
 
@@ -19,7 +20,8 @@ public partial class HomeScreen : Form
     {
         InitializeComponent();
         _userController = new UserController();
-        _controller = new TransactionController();
+        _transactionController = new TransactionController();
+        _categoryController = new CategoryController();
         _userId = userId;
         LoadUserData();
         TempLoadAccountBalance();
@@ -57,7 +59,7 @@ public partial class HomeScreen : Form
         {
             // Temporary hardcoded account balance for testing
             int tempAccount = 1; // Assuming account ID 1 exists
-            decimal balance = _controller.GetAccountBalance(tempAccount);
+            decimal balance = _transactionController.GetAccountBalance(tempAccount);
             txtCurrentBalance.Text = $"User {_userId} Balance: {balance:C}";
         }
         catch (Exception ex)
@@ -83,7 +85,27 @@ public partial class HomeScreen : Form
         {
             // Temporary using account ID 1 - you should replace this with the actual account ID
             int tempAccount = 1;
-            var transactions = _controller.GetRecentTransactions(tempAccount);
+            var transactions = _transactionController.GetRecentTransactions(tempAccount);
+            var categories = _categoryController.GetAll();
+
+
+            // My first ever LINQ query
+            // This is an example of an "Outer Join" b/c DefaultIfEmpty + "N/a" fallback value
+            // To Execute this LINQ query, you run sourceData.ToList();
+            var sourceData = from transaction in transactions
+                             join category in categories
+                             on transaction.CategoryId equals category.CategoryId
+                             into transactionCategories
+                             from category in transactionCategories.DefaultIfEmpty()
+                             select  new {
+                                 transaction.TransactionDate,
+                                 transaction.TransactionType,
+                                 transaction.TransactionDescription,
+                                 transaction.TransactionAmount,
+                                 CategoryName = category?.CategoryName ?? "N/a"
+
+                             };
+
 
             dgvRecentTransactions.AutoGenerateColumns = false;
             dgvRecentTransactions.Columns.Clear();
@@ -114,8 +136,15 @@ public partial class HomeScreen : Form
                 HeaderText = "Amount",
                 DefaultCellStyle = new DataGridViewCellStyle { Format = "C" }
             });
+            dgvRecentTransactions.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Category",
+                DataPropertyName = "CategoryName",
+                HeaderText = "Category",
+            });
 
-            dgvRecentTransactions.DataSource = transactions;
+            
+            dgvRecentTransactions.DataSource = sourceData.ToList();
             dgvRecentTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         catch (Exception ex)

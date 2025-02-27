@@ -46,7 +46,7 @@
             label1.Location = new Point(29, 135);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(174, 28);
+            label1.Size = new Size(292, 46);
             label1.TabIndex = 0;
             label1.Text = "Current Balance: ";
             // 
@@ -55,10 +55,10 @@
             btnAddIncome.FlatAppearance.BorderSize = 4;
             btnAddIncome.FlatStyle = FlatStyle.Flat;
             btnAddIncome.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddIncome.Location = new Point(72, 459);
+            btnAddIncome.Location = new Point(1495, 1116);
             btnAddIncome.Margin = new Padding(4, 3, 4, 3);
             btnAddIncome.Name = "btnAddIncome";
-            btnAddIncome.Size = new Size(184, 73);
+            btnAddIncome.Size = new Size(322, 73);
             btnAddIncome.TabIndex = 2;
             btnAddIncome.Text = "Add Income";
             btnAddIncome.UseVisualStyleBackColor = true;
@@ -69,10 +69,10 @@
             btnAddExpense.FlatAppearance.BorderSize = 4;
             btnAddExpense.FlatStyle = FlatStyle.Flat;
             btnAddExpense.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddExpense.Location = new Point(470, 459);
+            btnAddExpense.Location = new Point(1836, 1116);
             btnAddExpense.Margin = new Padding(4, 3, 4, 3);
             btnAddExpense.Name = "btnAddExpense";
-            btnAddExpense.Size = new Size(184, 73);
+            btnAddExpense.Size = new Size(339, 73);
             btnAddExpense.TabIndex = 5;
             btnAddExpense.Text = "Add Expense";
             btnAddExpense.UseVisualStyleBackColor = true;
@@ -81,10 +81,10 @@
             // txtCurrentBalance
             // 
             txtCurrentBalance.Enabled = false;
-            txtCurrentBalance.Location = new Point(270, 135);
+            txtCurrentBalance.Location = new Point(360, 135);
             txtCurrentBalance.Margin = new Padding(4, 3, 4, 3);
             txtCurrentBalance.Name = "txtCurrentBalance";
-            txtCurrentBalance.Size = new Size(179, 34);
+            txtCurrentBalance.Size = new Size(860, 52);
             txtCurrentBalance.TabIndex = 6;
             // 
             // grpBxTransactions
@@ -96,36 +96,41 @@
             grpBxTransactions.Margin = new Padding(4, 3, 4, 3);
             grpBxTransactions.Name = "grpBxTransactions";
             grpBxTransactions.Padding = new Padding(4, 3, 4, 3);
-            grpBxTransactions.Size = new Size(691, 204);
+            grpBxTransactions.Size = new Size(2150, 870);
             grpBxTransactions.TabIndex = 7;
             grpBxTransactions.TabStop = false;
             grpBxTransactions.Text = "Recent Transaction";
             // 
             // dgvRecentTransactions
             // 
-            dgvRecentTransactions.ColumnHeadersHeight = 34;
+            dgvRecentTransactions.AllowUserToAddRows = false;
+            dgvRecentTransactions.AllowUserToDeleteRows = false;
+            dgvRecentTransactions.AllowUserToOrderColumns = true;
+            dgvRecentTransactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvRecentTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRecentTransactions.Dock = DockStyle.Fill;
-            dgvRecentTransactions.Location = new Point(4, 30);
+            dgvRecentTransactions.Location = new Point(4, 48);
             dgvRecentTransactions.Name = "dgvRecentTransactions";
+            dgvRecentTransactions.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvRecentTransactions.RowHeadersWidth = 62;
-            dgvRecentTransactions.Size = new Size(683, 171);
+            dgvRecentTransactions.Size = new Size(2142, 819);
             dgvRecentTransactions.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(231, 26);
+            label2.Location = new Point(33, 25);
             label2.Name = "label2";
-            label2.Size = new Size(183, 41);
+            label2.Size = new Size(308, 67);
             label2.TabIndex = 8;
             label2.Text = "Home Form";
             // 
             // HomeScreen
             // 
-            AutoScaleDimensions = new SizeF(12F, 28F);
+            AutoScaleDimensions = new SizeF(20F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(733, 605);
+            ClientSize = new Size(2208, 1221);
             Controls.Add(label2);
             Controls.Add(grpBxTransactions);
             Controls.Add(txtCurrentBalance);
