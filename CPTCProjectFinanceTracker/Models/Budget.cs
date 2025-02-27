@@ -19,17 +19,6 @@ namespace CPTCProjectFinanceTracker.Models
         [Key]
         public int BudgetId { get; set; }
 
-        /// <summary>
-        /// Foreign key to the users table
-        /// </summary>
-        [Required]
-        public int UserId { get; set; }
-
-        /// <summary>
-        /// Foreign key to the categories table
-        /// </summary>
-        [Required]
-        public int CategoryId { get; set; }
 
         /// <summary>
         /// The amount budgeted for the category
@@ -47,9 +36,18 @@ namespace CPTCProjectFinanceTracker.Models
         /// The end date of the budget
         /// </summary>
         [Required]
-        public DateTime EndDate
-        {
-            get; set;
-        }
+        public DateTime EndDate { get; set; }
+
+        /// <summary>
+        /// Get UserId from User table
+        /// </summary>
+        public required User User { get; set; }
+
+        /// <summary>
+        /// Get CategoryId from Category table
+        /// </summary>
+        public required Category Category { get; set; }
+        
+
     }
 }
