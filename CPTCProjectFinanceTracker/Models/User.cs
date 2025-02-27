@@ -22,25 +22,40 @@ public class User
     /// The user's Full name
     /// </summary>
     [Required]
-    public string UserName { get; set; }
+    public required string UserName { get; set; }
 
     /// <summary>
     /// The user's email address
     /// </summary>
     [Required]
-    public string UserEmail { get; set; }
+    public required string UserEmail { get; set; }
 
     /// <summary>
     /// The user's password
     /// </summary>
     [Required]
-    public string UserPassword { get; set; }
+    public required string UserPassword { get; set; }
 
     /// <summary>
     /// The time stamp when the user was created
     /// </summary>
     [Required]
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    /// <summary>
+    /// Link UserId to Account
+    /// </summary>
+    public virtual required ICollection<Account> Accounts { get; set; }
+
+    /// <summary>
+    /// Link UserId to Budget
+    /// </summary>
+    public virtual required ICollection<Budget> Budgets { get; set; }
+
+    /// <summary>
+    /// Link UserId to Reminder
+    /// </summary>
+    public virtual required ICollection<Reminder> Reminders { get; set; }
 
 }
 
