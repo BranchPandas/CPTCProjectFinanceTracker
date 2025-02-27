@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +15,18 @@ namespace CPTCProjectFinanceTracker.Models
         /// <summary>
         /// The unique identifier for each ReminderTrigger
         /// </summary>
+        [Key]
         public int ReminderTriggerId { get; set; }
 
         /// <summary>
         /// The type of the ReminderTrigger
         /// </summary>
-        public string Type { get; set; }
+        [Required]
+        public required string Type { get; set; }
 
         /// <summary>
-        /// The foreign key for the Reminder class
+        /// Get ReminderId from Reminder table
         /// </summary>
-        public int ReminderId { get; set; }
-
+        public virtual required Reminder Reminder { get; set; }
     }
 }
