@@ -20,22 +20,27 @@ public class Account
     public int AccountId { get; set; }
 
     /// <summary>
-    /// The foreign key for the User class
-    /// </summary>
-    [Required]
-    public int UserId { get; set; }
-
-    /// <summary>
     /// The name of the Account
     /// </summary>
     [Required]
-    public string AccountName { get; set; }
+    public required string AccountName { get; set; }
 
     /// <summary>
     /// The current balance of the Account
+    /// (Decimal(and another value type) does not require [Require] annotation)
     /// </summary>
     [Required]
     public decimal AccountBalance { get; set; }
+
+    /// <summary>
+    /// Get UserId from User table
+    /// </summary>
+    public virtual required User User { get; set; }
+
+    /// <summary>
+    /// Link AccountId to Transaction table
+    /// </summary>
+    public virtual required ICollection<Transaction> Transactions { get; set; }
 
 }
 
