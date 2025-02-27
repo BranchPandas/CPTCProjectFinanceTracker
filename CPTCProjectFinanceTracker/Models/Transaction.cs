@@ -25,12 +25,6 @@ public class Transaction
     public DateOnly TransactionDate { get; set; }
 
     /// <summary>
-    /// The foreign key for the Account class
-    /// </summary>
-    [Required]
-    public int AccountId { get; set; }
-
-    /// <summary>
     /// The amount of the Transaction
     /// </summary>
     [Required]
@@ -49,10 +43,14 @@ public class Transaction
     public string? TransactionDescription { get; set; }
 
     /// <summary>
-    /// The foreign key for the Category class
+    /// Get AccountId from Account table
     /// </summary>
-    [Required]
-    public int CategoryId { get; set; }
+    public virtual required Account Account { get; set; }
+
+    /// <summary>
+    /// Get CategoryId from Category table
+    /// </summary>
+    public virtual required Category Category { get; set; }
 
 }
 
