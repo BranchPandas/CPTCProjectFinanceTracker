@@ -30,8 +30,8 @@ namespace CPTCProjectFinanceTracker
 
             // Add the Expense Categories to the ComboBox
             CategoryController categoryController = new();
-            List<Categories> categories = categoryController.GetAll(TransactionType.Expense);
-            foreach (Categories category in categories)
+            List<Category> categories = categoryController.GetAll(TransactionType.Expense);
+            foreach (Category category in categories)
             {
                 cmboBxExpenseCategory.Items.Add(category);
             }
@@ -53,17 +53,22 @@ namespace CPTCProjectFinanceTracker
         {
             try
             {
-                var transaction = new Transactions
+                var transaction = new Transaction
                 {
                     // TransactionId = automatically generated Id from database
                     AccountId = 1, // TODO: Get account ID from user selection
-                    CategoryId = ((Categories)cmboBxExpenseCategory.SelectedItem!).CategoryId,
+                    CategoryId = ((Category)cmboBxExpenseCategory.SelectedItem).CategoryId,
                     TransactionAmount = decimal.Parse(txtbxExpenseAmount.Text),
                     TransactionType = "Expense",
                     TransactionDescription = txtbxExpenseDescription.Text,
                     TransactionDate = DateOnly.FromDateTime(dtpExpenseDate.Value)
                 };
-
+                // Should be moved to the validation folder when created
+                if (cmboBxExpenseCategory.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Let controller handle the transaction
                 _controller.SaveTransaction(transaction);
                 ResetExpenseForm();

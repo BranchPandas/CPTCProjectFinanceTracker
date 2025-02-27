@@ -13,7 +13,7 @@ public partial class HomeScreen : Form
     // Add this to the InitializeComponent method after the grpBxTransactions initialization:
 
     private readonly int _userId;
-    private Users? _user;
+    private User? _user;
     private DataGridView dgvRecentTransactions;
 
     public HomeScreen(int userId)

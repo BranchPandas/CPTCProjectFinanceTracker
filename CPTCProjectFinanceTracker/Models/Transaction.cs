@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace CPTCProjectFinanceTracker.Models;
 
 /// <summary>
-/// The Transactions class represents a transaction in the finance tracker application.
+/// The Transaction class represents a transaction in the finance tracker application.
 /// </summary>
-public class Transactions
+public class Transaction
 {
     /// <summary>
     /// The unique identifier for each Transaction
@@ -25,7 +25,7 @@ public class Transactions
     public DateOnly TransactionDate { get; set; }
 
     /// <summary>
-    /// The foreign key for the Accounts class
+    /// The foreign key for the Account class
     /// </summary>
     [Required]
     public int AccountId { get; set; }

@@ -99,7 +99,7 @@
             grpBxTransactions.Size = new Size(2150, 870);
             grpBxTransactions.TabIndex = 7;
             grpBxTransactions.TabStop = false;
-            grpBxTransactions.Text = "Recent Transactions";
+            grpBxTransactions.Text = "Recent Transaction";
             // 
             // dgvRecentTransactions
             // 

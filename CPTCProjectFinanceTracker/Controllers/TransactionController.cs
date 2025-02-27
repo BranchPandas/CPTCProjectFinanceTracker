@@ -29,7 +29,7 @@ public class TransactionController
     /// and saves it to the database
     /// </summary>
     /// <param name="transaction"></param>
-    public void SaveTransaction(Transactions transaction)
+    public void SaveTransaction(Models.Transaction transaction)
     {
         _context.Transactions.Add(transaction);
         _context.SaveChanges();
@@ -54,7 +54,7 @@ public class TransactionController
     /// <param name="accountId">The account ID to get transactions for</param>
     /// <param name="count">Number of recent transactions to retrieve</param>
     /// <returns>List of recent transactions</returns>
-    public List<Transactions> GetRecentTransactions(int accountId, int count = 10)
+    public List<Models.Transaction> GetRecentTransactions(int accountId, int count = 10)
     {
         return _context.Transactions
             .Where(t => t.AccountId == accountId)
