@@ -16,5 +16,15 @@ namespace CPTCProjectFinanceTracker.Views.Graphs
         {
             InitializeComponent();
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
