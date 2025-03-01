@@ -1,5 +1,6 @@
 using CPTCProjectFinanceTracker.Controllers;
 using CPTCProjectFinanceTracker.Models;
+using CPTCProjectFinanceTracker.Views.Graphs;
 using Microsoft.Identity.Client;
 
 namespace CPTCProjectFinanceTracker;
@@ -71,13 +72,15 @@ public partial class HomeScreen : Form
     private void btnAddExpense_Click(object sender, EventArgs e)
     {
         AddExpensesForm addExpensesForm = new AddExpensesForm(this);
-        addExpensesForm.Show();
+        //addExpensesForm.Show();
+        addExpensesForm.ShowDialog();
     }
 
     private void btnAddIncome_Click(object sender, EventArgs e)
     {
         AddIncomeForm addIncomeForm = new AddIncomeForm(this);
-        addIncomeForm.Show();
+        //addIncomeForm.Show();
+        addIncomeForm.ShowDialog();
     }
     public void LoadRecentTransactions()
     {
@@ -97,7 +100,8 @@ public partial class HomeScreen : Form
                              on transaction.CategoryId equals category.CategoryId
                              into transactionCategories
                              from category in transactionCategories.DefaultIfEmpty()
-                             select  new {
+                             select new
+                             {
                                  transaction.TransactionDate,
                                  transaction.TransactionType,
                                  transaction.TransactionDescription,
@@ -143,7 +147,7 @@ public partial class HomeScreen : Form
                 HeaderText = "Category",
             });
 
-            
+
             dgvRecentTransactions.DataSource = sourceData.ToList();
             dgvRecentTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -152,5 +156,17 @@ public partial class HomeScreen : Form
             MessageBox.Show($"Error loading transactions: {ex.Message}", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    private void toolStripMenuItem_graph1_Click(object sender, EventArgs e)
+    {
+        Graph1Form graph1Form = new Graph1Form();
+        graph1Form.Show();
+    }
+
+    private void ToolStripMenuItem_Graph2_Click(object sender, EventArgs e)
+    {
+        Graph2Form graph2Form = new Graph2Form();
+        graph2Form.Show();
     }
 }
