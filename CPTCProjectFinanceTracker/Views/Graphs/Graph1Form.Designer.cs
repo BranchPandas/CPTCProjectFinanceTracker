@@ -38,6 +38,7 @@
             // 
             // chart1
             // 
+            chartArea1.Area3DStyle.Enable3D = true;
             chartArea1.Name = "ChartArea1";
             chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
