@@ -71,13 +71,15 @@ public partial class HomeScreen : Form
     private void btnAddExpense_Click(object sender, EventArgs e)
     {
         AddExpensesForm addExpensesForm = new AddExpensesForm(this);
-        addExpensesForm.Show();
+        //addExpensesForm.Show();
+        addExpensesForm.ShowDialog();
     }
 
     private void btnAddIncome_Click(object sender, EventArgs e)
     {
         AddIncomeForm addIncomeForm = new AddIncomeForm(this);
-        addIncomeForm.Show();
+        //addIncomeForm.Show();
+        addIncomeForm.ShowDialog();
     }
     public void LoadRecentTransactions()
     {
