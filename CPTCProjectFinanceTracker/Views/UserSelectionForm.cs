@@ -103,4 +103,21 @@ public partial class UserSelectionForm : Form
         manageUsersForm.FormClosed += ManageUsersForm_FormClosed;
         manageUsersForm.ShowDialog();
     }
+    /// <summary>
+    /// Deletes the selected user from the database.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void btnDeleteUser_Click(object sender, EventArgs e)
+    {
+        SelectedUserId = (int)cbxUserSelection.SelectedValue;
+        User user = _controller.GetUserById(SelectedUserId);
+        DialogResult result = MessageBox.Show($"Are you sure you want to delete {user.UserName}?", "Delete User", MessageBoxButtons.OKCancel);
+        if (result == DialogResult.OK)
+        {
+            _controller.DeleteUser(user);
+            DisplayUsers();
+        }
+
+    }
 }

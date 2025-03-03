@@ -92,6 +92,7 @@
             btnDeleteUser.TabIndex = 5;
             btnDeleteUser.Text = "Delete a User";
             btnDeleteUser.UseVisualStyleBackColor = true;
+            btnDeleteUser.Click += btnDeleteUser_Click;
             // 
             // UserSelectionForm
             // 

@@ -71,6 +71,11 @@ public class UserController
         _context.SaveChanges();
     }
 
+    public void DeleteUser(User user)
+    {
+        _context.Users.Remove(user);
+        _context.SaveChanges();
+    }
 }
 
 /// <summary>
