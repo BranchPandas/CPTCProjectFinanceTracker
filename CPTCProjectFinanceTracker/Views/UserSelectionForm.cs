@@ -64,4 +64,16 @@ public partial class UserSelectionForm : Form
             MessageBox.Show("Error selecting user: " + ex.Message);
         }
     }
+
+    private void btnAddUser_Click(object sender, EventArgs e)
+    {
+        ManageUsersForm manageUsersForm = new ManageUsersForm();
+        manageUsersForm.FormClosed += ManageUsersForm_FormClosed;
+        manageUsersForm.ShowDialog();
+    }
+
+    private void ManageUsersForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        DisplayUsers();
+    }
 }
