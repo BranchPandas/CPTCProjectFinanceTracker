@@ -15,10 +15,27 @@ public partial class ManageUsersForm : Form
 {
     private readonly UserController _controller;
     private readonly User _user;
-    public ManageUsersForm()
+
+    public ManageUsersForm(int selectedUserId)
     {
         InitializeComponent();
         _controller = new UserController();
+
+        if (selectedUserId > 0)
+        {
+            _user = _controller.GetUserById(selectedUserId);
+            if (_user != null)
+            {
+                btnAdd.Visible = false;
+                txtbxUserName.Text = _user.UserName;
+                txtbxUserEmail.Text = _user.UserEmail;
+                txtbxUserPassword.Text = _user.UserPassword;
+            }
+        }
+        else
+        {
+            btnUpdate.Visible = false;
+        }
     }
     private void btnAdd_Click(object sender, EventArgs e)
     {
@@ -49,5 +66,15 @@ public partial class ManageUsersForm : Form
         Close();
     }
 
-
+    private void btnUpdate_Click(object sender, EventArgs e)
+    {
+        if (_user != null)
+        {
+            _user.UserName = txtbxUserName.Text;
+            _user.UserEmail = txtbxUserEmail.Text;
+            _user.UserPassword = txtbxUserPassword.Text;
+            _controller.UpdateUser(_user);
+        }
+        Close();
+    }
 }

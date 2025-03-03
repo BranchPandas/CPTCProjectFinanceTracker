@@ -104,6 +104,7 @@
             btnUpdate.TabIndex = 7;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // ManageUsersForm
             // 

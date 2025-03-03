@@ -82,6 +82,7 @@
             btnUpdateUser.TabIndex = 4;
             btnUpdateUser.Text = "Update a User";
             btnUpdateUser.UseVisualStyleBackColor = true;
+            btnUpdateUser.Click += btnUpdateUser_Click;
             // 
             // btnDeleteUser
             // 
