@@ -74,6 +74,46 @@ namespace CPTCProjectFinanceTracker.Utilities
                 _comboBox.Items.Add(category);
             }
         }
+
+
+        public static List<MapCategoryToTransaction_ViewModel> MapCategoryToTransaction(List<Transaction> transactions, List<Category> categories)
+        {
+            var sourceData = from transaction in transactions
+                             join category in categories
+                             on transaction.CategoryId equals category.CategoryId
+                             into transactionCategories
+                             from category in transactionCategories.DefaultIfEmpty()
+                             select new MapCategoryToTransaction_ViewModel
+                             {
+                                 TransactionDate = transaction.TransactionDate,
+                                 TransactionType = transaction.TransactionType,
+                                 TransactionDescription = transaction.TransactionDescription,
+                                 TransactionAmount = transaction.TransactionAmount,
+                                 CategoryName = category?.CategoryName ?? "N/a"
+                             };
+
+            return sourceData.ToList();
+        }
+
+        public class MapCategoryToTransaction_ViewModel() { 
+            
+            public DateOnly TransactionDate { get; set; }
+            public string TransactionType { get; set; }
+            public string TransactionDescription { get; set; }
+            public decimal TransactionAmount { get; set; }
+            public string CategoryName { get; set; }
+
+            public override string ToString()
+            {
+                return $"{TransactionDate.ToString("yyyy-MM-dd")} - {TransactionType}: {TransactionDescription} - {TransactionAmount:C} (Category: {CategoryName})";
+            }
+
+        }
+
+
     }
+
+
+
 
 }
