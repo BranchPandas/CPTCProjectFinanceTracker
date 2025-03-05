@@ -52,6 +52,11 @@ public class Transaction
     /// </summary>
     public virtual required Category Category { get; set; }
 
+    public int AccountId { get; set; }
+    public int CategoryId { get; set; }
+
+    // Other properties and methods
+
 }
 
 // This Enum helps to prevent misspellings of strings
