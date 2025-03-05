@@ -135,7 +135,9 @@ namespace CPTCProjectFinanceTracker.Views
                     category = new()
                     {
                         CategoryType = TransactionType.Expense.ToString(),
-                        CategoryName = txtBxCategoryName.Text
+                        CategoryName = txtBxCategoryName.Text,
+                        Budgets = new List<Budget>(),
+                        Transactions = new List<Transaction>()
                     };
                     categoryController.Add(category);
 
@@ -152,7 +154,9 @@ namespace CPTCProjectFinanceTracker.Views
                     category = new()
                     {
                         CategoryType = TransactionType.Income.ToString(),
-                        CategoryName = txtBxCategoryName.Text
+                        CategoryName = txtBxCategoryName.Text,
+                        Budgets = new List<Budget>(),
+                        Transactions = new List<Transaction>()
                     };
 
                     categoryController.Add(category);
