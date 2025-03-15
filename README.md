@@ -46,6 +46,6 @@ dotnet run
 
 # Preview of Application
 
-[Follow this link](./demos/app-walkthrough-_1_.gif)
+![Follow this link](./demos/app-walkthrough-_1_.gif)
 
 
