@@ -1,5 +1,6 @@
 using CPTCProjectFinanceTracker.Controllers;
 using CPTCProjectFinanceTracker.Models;
+using CPTCProjectFinanceTracker.Utilities;
 using CPTCProjectFinanceTracker.Views.Graphs;
 using Microsoft.Identity.Client;
 
@@ -92,23 +93,10 @@ public partial class HomeScreen : Form
             var categories = _categoryController.GetAll();
 
 
-            // My first ever LINQ query
+
             // This is an example of an "Outer Join" b/c DefaultIfEmpty + "N/a" fallback value
             // To Execute this LINQ query, you run sourceData.ToList();
-            var sourceData = from transaction in transactions
-                             join category in categories
-                             on transaction.CategoryId equals category.CategoryId
-                             into transactionCategories
-                             from category in transactionCategories.DefaultIfEmpty()
-                             select new
-                             {
-                                 transaction.TransactionDate,
-                                 transaction.TransactionType,
-                                 transaction.TransactionDescription,
-                                 transaction.TransactionAmount,
-                                 CategoryName = category?.CategoryName ?? "N/a"
-
-                             };
+            var sourceData = CategoryManager.MapCategoryToTransaction(transactions, categories);
 
 
             dgvRecentTransactions.AutoGenerateColumns = false;
