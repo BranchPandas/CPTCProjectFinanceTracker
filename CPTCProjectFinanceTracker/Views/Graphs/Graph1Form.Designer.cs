@@ -40,9 +40,12 @@
             // TransactionsByCategoryChart
             // 
             chartArea1.Area3DStyle.Enable3D = true;
-            chartArea1.AxisX.Title = "Categories";
+            chartArea1.AxisX.Title = "Month";
             chartArea1.AxisX.TitleFont = new Font("Microsoft Sans Serif", 15.1F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chartArea1.AxisY.Title = "Transactions Amount";
+            chartArea1.AxisX.Interval = 1; // Ensure each month is displayed
+            chartArea1.AxisX.LabelStyle.Format = "MMMM"; // Display full month name
+            chartArea1.AxisX.MajorTickMark.Enabled = true; // Enable tick marks
+            chartArea1.AxisY.Title = "Amount ($)";
             chartArea1.AxisY.TitleFont = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold);
             chartArea1.Name = "ChartArea1";
             TransactionsByCategoryChart.ChartAreas.Add(chartArea1);
