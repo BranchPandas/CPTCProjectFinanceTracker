@@ -51,7 +51,9 @@ public partial class AddIncomeForm : Form
                 TransactionAmount = decimal.Parse(txtbxIncomeAmount.Text),
                 TransactionType = "Income",
                 TransactionDescription = txtbxIncomeDescription.Text,
-                TransactionDate = DateOnly.FromDateTime(dtpIncomeDate.Value)
+                TransactionDate = DateOnly.FromDateTime(dtpIncomeDate.Value),
+                Account = null!, // TODO: Need to work on this null
+                Category = null! // TODO: Need to work on this null
             };
             // Should be moved to the validation folder when created
             if (cmboBxIncomeCategory.SelectedItem == null)

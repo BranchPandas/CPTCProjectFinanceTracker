@@ -61,7 +61,9 @@ namespace CPTCProjectFinanceTracker
                     TransactionAmount = decimal.Parse(txtbxExpenseAmount.Text),
                     TransactionType = "Expense",
                     TransactionDescription = txtbxExpenseDescription.Text,
-                    TransactionDate = DateOnly.FromDateTime(dtpExpenseDate.Value)
+                    TransactionDate = DateOnly.FromDateTime(dtpExpenseDate.Value),
+                    Account = null!, // TODO: Need to work on this null
+                    Category = null! // TODO: Need to work on this null
                 };
                 // Should be moved to the validation folder when created
                 if (cmboBxExpenseCategory.SelectedItem == null)

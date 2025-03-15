@@ -19,6 +19,7 @@ public class UserController
     /// </summary>
     private readonly FinanceTrackingContext _context;
 
+
     /// <summary>
     /// Initializes a new instance of the UserController class.
     /// Creates a new database context and loads initial user data.
@@ -58,6 +59,23 @@ public class UserController
         return _context.Users.FirstOrDefault(u => u.UserID == userId);
     }
 
+    public void AddUser(User user)
+    {
+        _context.Users.Add(user);
+        _context.SaveChanges();
+    }
+
+    public void UpdateUser(User user)
+    {
+        _context.Users.Update(user);
+        _context.SaveChanges();
+    }
+
+    public void DeleteUser(User user)
+    {
+        _context.Users.Remove(user);
+        _context.SaveChanges();
+    }
 }
 
 /// <summary>

@@ -42,6 +42,11 @@ public partial class UserSelectionForm : Form
             MessageBox.Show("Error loading users." + ex.Message);
         }
     }
+    /// <summary>
+    /// Opens the HomeScreen with the selected user.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void btnEnterApp_Click(object sender, EventArgs e)
     {
         try
@@ -63,5 +68,56 @@ public partial class UserSelectionForm : Form
         {
             MessageBox.Show("Error selecting user: " + ex.Message);
         }
+    }
+
+    /// <summary>
+    /// Opens the ManageUsersForm for adding a new user.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void btnAddUser_Click(object sender, EventArgs e)
+    {
+        ManageUsersForm manageUsersForm = new ManageUsersForm(0);
+        manageUsersForm.FormClosed += ManageUsersForm_FormClosed;
+        manageUsersForm.ShowDialog();
+    }
+
+    /// <summary>
+    /// Refreshes the user list when the ManageUsersForm is closed.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void ManageUsersForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        DisplayUsers();
+    }
+    /// <summary>
+    /// Opens the ManageUsersForm with the selected user for updating.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void btnUpdateUser_Click(object sender, EventArgs e)
+    {
+        SelectedUserId = (int)cbxUserSelection.SelectedValue;
+        ManageUsersForm manageUsersForm = new ManageUsersForm(SelectedUserId);
+        manageUsersForm.FormClosed += ManageUsersForm_FormClosed;
+        manageUsersForm.ShowDialog();
+    }
+    /// <summary>
+    /// Deletes the selected user from the database.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void btnDeleteUser_Click(object sender, EventArgs e)
+    {
+        SelectedUserId = (int)cbxUserSelection.SelectedValue;
+        User user = _controller.GetUserById(SelectedUserId);
+        DialogResult result = MessageBox.Show($"Are you sure you want to delete {user.UserName}?", "Delete User", MessageBoxButtons.OKCancel);
+        if (result == DialogResult.OK)
+        {
+            _controller.DeleteUser(user);
+            DisplayUsers();
+        }
+
     }
 }
