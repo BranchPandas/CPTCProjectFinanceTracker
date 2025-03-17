@@ -12,7 +12,7 @@ namespace CPTCProjectFinanceTracker.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Accounts",
+                name: "Account",
                 columns: table => new
                 {
                     AccountId = table.Column<int>(type: "int", nullable: false)
@@ -27,7 +27,7 @@ namespace CPTCProjectFinanceTracker.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reminders",
+                name: "Reminder",
                 columns: table => new
                 {
                     ReminderId = table.Column<int>(type: "int", nullable: false)
@@ -42,7 +42,7 @@ namespace CPTCProjectFinanceTracker.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transactions",
+                name: "Transaction",
                 columns: table => new
                 {
                     TransactionId = table.Column<int>(type: "int", nullable: false)
@@ -60,7 +60,7 @@ namespace CPTCProjectFinanceTracker.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     UserID = table.Column<int>(type: "int", nullable: false)
@@ -80,16 +80,16 @@ namespace CPTCProjectFinanceTracker.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Accounts");
+                name: "Account");
 
             migrationBuilder.DropTable(
-                name: "Reminders");
+                name: "Reminder");
 
             migrationBuilder.DropTable(
-                name: "Transactions");
+                name: "Transaction");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
         }
     }
 }

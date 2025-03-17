@@ -44,6 +44,8 @@ dotnet run
       Go to the folder where you extracted the repo and click on the eCommerceProject.sln file
 
 
-# Preview of Home Page
-**Coming Soon**
+# Preview of Application
+
+![Follow this link](./demos/app-walkthrough-_1_.gif)
+
 
